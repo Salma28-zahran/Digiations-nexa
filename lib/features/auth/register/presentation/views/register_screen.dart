@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../core/route/routes.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   bool _obscurePassword = true;
 
   OutlineInputBorder _border(double radius) {
@@ -41,6 +41,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   fit: BoxFit.contain,
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+                child: TextField(
+                  style: GoogleFonts.inter(fontSize: screenHeight * 0.02),
+                  decoration: InputDecoration(
+                    hintText: "Full Name",
+                    hintStyle: GoogleFonts.inter(
+                      color: Colors.grey,
+                      fontSize: screenHeight * 0.02,
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.person,
+                      color: Color(0xFF7A5CFF),
+                    ),
+                    enabledBorder: _border(screenHeight * 0.04),
+                    focusedBorder: _border(screenHeight * 0.04),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: screenHeight * 0.022,
+                      horizontal: screenWidth * 0.05,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.02),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
@@ -105,35 +129,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
-              SizedBox(height: screenHeight * 0.01),
-
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot Password?",
-                      style: GoogleFonts.inter(
-                        color: const Color(0xFF7A5CFF),
-                        fontSize: screenHeight * 0.016,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
               SizedBox(height: screenHeight * 0.015),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: GestureDetector(
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                   child: Container(
                     height: screenHeight * 0.07,
                     width: double.infinity,
@@ -149,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Center(
                       child: Text(
-                        "Login",
+                        "Register",
                         style: GoogleFonts.inter(
                           color: Colors.white,
                           fontSize: screenHeight * 0.02,
@@ -167,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don’t have an account? ",
+                    "already have an account? ",
                     style: GoogleFonts.inter(
                       color: Colors.grey,
                       fontSize: screenHeight * 0.016,
@@ -176,10 +177,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, PageRouteName.register);
+                      Navigator.pushNamed(context, PageRouteName.login);
+
                     },
                     child: Text(
-                      "Register",
+                      "login",
                       style: GoogleFonts.inter(
                         color: const Color(0xFF7A5CFF),
                         fontSize: screenHeight * 0.016,
