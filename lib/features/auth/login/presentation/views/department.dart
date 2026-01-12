@@ -7,16 +7,19 @@ class Department extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 160),
+            SizedBox(height: screenHeight * 0.2),
             Center(
               child: SizedBox(
-                width: 300,
+                width: screenWidth * 0.75,
                 child: Image.asset(
                   "assets/images/logo2.png",
                   fit: BoxFit.contain,
@@ -24,13 +27,13 @@ class Department extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, PageRouteName.login);
                 },
                 child: Container(
-                  height: 52,
+                  height: screenHeight * 0.07,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
@@ -47,7 +50,7 @@ class Department extends StatelessWidget {
                       "web",
                       style: GoogleFonts.inter(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -55,15 +58,15 @@ class Department extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 28,),
+            SizedBox(height: screenHeight * 0.035),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, PageRouteName.login);
                 },
                 child: Container(
-                  height: 52,
+                  height: screenHeight * 0.07,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
@@ -80,7 +83,7 @@ class Department extends StatelessWidget {
                       "mobile",
                       style: GoogleFonts.inter(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

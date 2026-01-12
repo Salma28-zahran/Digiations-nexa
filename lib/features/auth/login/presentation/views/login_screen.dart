@@ -11,9 +11,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool _obscurePassword = true;
 
-  OutlineInputBorder _border() {
+  OutlineInputBorder _border(double radius) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(30),
+      borderRadius: BorderRadius.circular(radius),
       borderSide: const BorderSide(
         color: Color(0xFFB9C0FF),
       ),
@@ -22,6 +22,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Center(
@@ -30,49 +33,49 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 300,
+                width: screenWidth * 0.75,
                 child: Image.asset(
                   "assets/images/logo2.png",
                   fit: BoxFit.contain,
                 ),
               ),
 
-             // const SizedBox(height: 32),
-
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: TextField(
-                  style: GoogleFonts.inter(),
+                  style: GoogleFonts.inter(fontSize: screenHeight * 0.02),
                   decoration: InputDecoration(
                     hintText: "Email",
                     hintStyle: GoogleFonts.inter(
                       color: Colors.grey,
+                      fontSize: screenHeight * 0.02,
                     ),
                     prefixIcon: const Icon(
                       Icons.email_outlined,
                       color: Color(0xFF7A5CFF),
                     ),
-                    enabledBorder: _border(),
-                    focusedBorder: _border(),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 16,
-                      horizontal: 20,
+                    enabledBorder: _border(screenHeight * 0.04),
+                    focusedBorder: _border(screenHeight * 0.04),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: screenHeight * 0.022,
+                      horizontal: screenWidth * 0.05,
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 16),
+              SizedBox(height: screenHeight * 0.02),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: TextField(
                   obscureText: _obscurePassword,
-                  style: GoogleFonts.inter(),
+                  style: GoogleFonts.inter(fontSize: screenHeight * 0.02),
                   decoration: InputDecoration(
                     hintText: "Password",
                     hintStyle: GoogleFonts.inter(
                       color: Colors.grey,
+                      fontSize: screenHeight * 0.02,
                     ),
                     prefixIcon: const Icon(
                       Icons.lock_outline,
@@ -91,20 +94,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                     ),
-                    enabledBorder: _border(),
-                    focusedBorder: _border(),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 18,
-                      horizontal: 20,
+                    enabledBorder: _border(screenHeight * 0.04),
+                    focusedBorder: _border(screenHeight * 0.04),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: screenHeight * 0.025,
+                      horizontal: screenWidth * 0.05,
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 8),
+              SizedBox(height: screenHeight * 0.01),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
@@ -113,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       "Forgot Password?",
                       style: GoogleFonts.inter(
                         color: const Color(0xFF7A5CFF),
-                        fontSize: 13,
+                        fontSize: screenHeight * 0.016,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -121,17 +124,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
 
-              const SizedBox(height: 12),
+              SizedBox(height: screenHeight * 0.015),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: GestureDetector(
                   onTap: () {},
                   child: Container(
-                    height: 52,
+                    height: screenHeight * 0.07,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(screenHeight * 0.018),
                       gradient: const LinearGradient(
                         colors: [
                           Color(0xFF2FA4FF),
@@ -145,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         "Login",
                         style: GoogleFonts.inter(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: screenHeight * 0.02,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -153,7 +156,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
+
+              SizedBox(height: screenHeight * 0.012),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -162,26 +166,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     "Don’t have an account? ",
                     style: GoogleFonts.inter(
                       color: Colors.grey,
-                      fontSize: 13,
+                      fontSize: screenHeight * 0.016,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {
-
-                    },
+                    onTap: () {},
                     child: Text(
                       "Register",
                       style: GoogleFonts.inter(
                         color: const Color(0xFF7A5CFF),
-                        fontSize: 13,
+                        fontSize: screenHeight * 0.016,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
                 ],
               ),
-
             ],
           ),
         ),
