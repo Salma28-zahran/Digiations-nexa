@@ -1,3 +1,5 @@
+import 'package:digiations_nexa/core/route/routes_generator.dart';
+import 'package:digiations_nexa/core/widgets/background.dart' show BackgroundScreen;
 import 'package:flutter/material.dart';
 
 
@@ -12,9 +14,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-
+      onGenerateRoute: RoutesGenerator.onGenerateRoutes,
+      builder: (context, child) {
+        return BackgroundScreen(
+          child: child ?? const SizedBox(),
+        );
+      },
     );
   }
 }
