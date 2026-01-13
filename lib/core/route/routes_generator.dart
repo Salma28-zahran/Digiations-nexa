@@ -44,7 +44,7 @@ class RoutesGenerator {
         );
       case PageRouteName.homeEmployee:
         return MaterialPageRoute(
-          builder: (context) => const BackgroundScreen(
+          builder: (context) => BackgroundScreen(
             child: HomeEmployee(),
           ),
           settings: settings,

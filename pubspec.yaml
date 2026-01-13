@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^7.0.0
   image_picker: ^1.0.7
   shared_preferences: ^2.5.4
+  pluto_grid: ^8.1.0
+  syncfusion_flutter_datagrid: ^32.1.23
 
 dev_dependencies:
   flutter_test:
