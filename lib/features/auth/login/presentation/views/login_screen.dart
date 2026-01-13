@@ -1,3 +1,6 @@
+import 'package:digiations_nexa/core/route/routes.dart';
+import 'package:digiations_nexa/core/widgets/constants/user_role.dart';
+import 'package:digiations_nexa/core/widgets/storage/UserRoleStorage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -131,9 +134,24 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: GestureDetector(
-                  onTap: () {
 
+                  onTap: () async {
+                    final role = await UserRoleStorage.getRole();
+
+                    if (role == UserRole.manager) {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        PageRouteName.homeManager,
+                      );
+                    } else if (role == UserRole.employee) {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        PageRouteName.homeEmployee,
+                      );
+                    }
                   },
+
+
                   child: Container(
                     height: screenHeight * 0.07,
                     width: double.infinity,
