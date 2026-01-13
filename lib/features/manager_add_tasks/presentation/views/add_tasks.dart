@@ -182,7 +182,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       ),
                       child: Center(
                         child: Text(
-                          "Register",
+                          "Send",
                           style: GoogleFonts.inter(
                             color: Colors.white,
                             fontSize: screenHeight * 0.02,
