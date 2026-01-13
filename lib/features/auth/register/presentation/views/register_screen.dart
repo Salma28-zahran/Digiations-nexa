@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import '../../../../../core/route/routes.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -12,7 +13,8 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   bool _obscurePassword = true;
-
+  File? _profileImage;
+  final ImagePicker _picker = ImagePicker();
   OutlineInputBorder _border(double radius) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(18),
@@ -21,7 +23,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
+  Future<void> _pickImage() async {
+    final XFile? image = await _picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 70,
+    );
 
+    if (image != null) {
+      setState(() {
+        _profileImage = File(image.path);
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -41,6 +54,49 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fit: BoxFit.contain,
                 ),
               ),
+              GestureDetector(
+                onTap: _pickImage,
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color:  Color(0xFFB9C0FF),
+                      width: 3,
+                    ),
+                    gradient:  LinearGradient(
+                      colors: [
+                        Color(0xFFEAF2FF),
+                        Color(0xFFF1EDFF),
+                      ],
+                    ),
+                  ),
+                  child: CircleAvatar(
+                    radius: screenWidth * 0.15,
+                    backgroundColor: Colors.transparent,
+                    backgroundImage:
+                    _profileImage != null ? FileImage(_profileImage!) : null,
+                    child: _profileImage == null
+                        ? Icon(
+                      Icons.camera_alt,
+                      size: screenWidth * 0.08,
+                      color: const Color(0xFF7A5CFF),
+                    )
+                        : null,
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.01),
+              Text(
+                "Profile Image",
+                style: GoogleFonts.inter(
+                  fontSize: screenHeight * 0.02,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF7A5CFF),
+                  letterSpacing: 0.3,
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.02),
+
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: TextField(
@@ -134,7 +190,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, PageRouteName.login);
+                  },
                   child: Container(
                     height: screenHeight * 0.07,
                     width: double.infinity,

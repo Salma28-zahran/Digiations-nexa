@@ -4,7 +4,6 @@ import 'package:digiations_nexa/core/widgets/background.dart';
 import 'package:digiations_nexa/features/auth/login/presentation/views/department.dart';
 import 'package:digiations_nexa/features/auth/login/presentation/views/login_screen.dart';
 import 'package:digiations_nexa/features/auth/register/presentation/views/register_screen.dart';
-import 'package:digiations_nexa/features/role/manager/presentation/views/manager_screen.dart';
 import 'package:flutter/material.dart';
 
 class RoutesGenerator {
