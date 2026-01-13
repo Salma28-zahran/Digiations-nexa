@@ -4,8 +4,8 @@ import 'package:digiations_nexa/core/widgets/storage/UserRoleStorage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Department extends StatelessWidget {
-  const Department({super.key});
+class Position extends StatelessWidget {
+  const Position({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,12 @@ class Department extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
               child: GestureDetector(
-                onTap: () async {
-                  await UserRoleStorage.saveRole(UserRole.employee);
-                  Navigator.pushNamed(context, PageRouteName.login);
-                },
+
+                  onTap: () async {
+                    await UserRoleStorage.saveRole(UserRole.manager);
+                    Navigator.pushNamed(context, PageRouteName.login);
+                  },
+
 
                 child: Container(
                   height: screenHeight * 0.07,
@@ -51,7 +53,7 @@ class Department extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "web",
+                      "manager",
                       style: GoogleFonts.inter(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
@@ -68,7 +70,7 @@ class Department extends StatelessWidget {
               child: GestureDetector(
                 onTap: () async {
                   await UserRoleStorage.saveRole(UserRole.employee);
-                  Navigator.pushNamed(context, PageRouteName.login);
+                  Navigator.pushNamed(context, PageRouteName.department);
                 },
 
                 child: Container(
@@ -86,7 +88,7 @@ class Department extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "mobile",
+                      "emloyee",
                       style: GoogleFonts.inter(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
@@ -102,5 +104,4 @@ class Department extends StatelessWidget {
       ),
     );
   }
-
 }
