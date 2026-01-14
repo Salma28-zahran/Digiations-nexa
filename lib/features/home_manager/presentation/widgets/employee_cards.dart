@@ -7,6 +7,8 @@ class EmployeeCard1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -18,15 +20,15 @@ class EmployeeCard1 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),
@@ -154,11 +156,14 @@ class EmployeeCard1 extends StatelessWidget {
     );
   }
 }
+
 class EmployeeCard2 extends StatelessWidget {
   const EmployeeCard2({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -170,15 +175,15 @@ class EmployeeCard2 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),
@@ -305,11 +310,14 @@ class EmployeeCard2 extends StatelessWidget {
     );
   }
 }
+
 class EmployeeCard3 extends StatelessWidget {
   const EmployeeCard3({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -321,15 +329,15 @@ class EmployeeCard3 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),
@@ -457,11 +465,14 @@ class EmployeeCard3 extends StatelessWidget {
     );
   }
 }
+
 class EmployeeCard4 extends StatelessWidget {
   const EmployeeCard4({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -473,15 +484,15 @@ class EmployeeCard4 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),

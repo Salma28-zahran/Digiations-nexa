@@ -13,6 +13,15 @@ class HomeEmployee extends StatefulWidget {
 class _HomeEmployeeState extends State<HomeEmployee> {
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    /// 🎨 ألوان حسب الثيم
+    final Color tabBg =
+    isDark ? const Color(0xFF1F1F1F) : Colors.grey.shade200;
+
+    final Color unselectedText =
+    isDark ? Colors.white70 : Colors.black54;
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -22,14 +31,14 @@ class _HomeEmployeeState extends State<HomeEmployee> {
           children: [
             const SizedBox(height: 16),
 
-
+            /// 🟣 TabBar
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
                 height: 50,
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
+                  color: tabBg,
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: TabBar(
@@ -46,7 +55,7 @@ class _HomeEmployeeState extends State<HomeEmployee> {
                   indicatorSize: TabBarIndicatorSize.tab,
                   dividerColor: Colors.transparent,
                   labelColor: Colors.white,
-                  unselectedLabelColor: Colors.black54,
+                  unselectedLabelColor: unselectedText,
                   labelPadding: EdgeInsets.zero,
                   tabs: const [
                     Tab(text: "State"),
@@ -58,12 +67,12 @@ class _HomeEmployeeState extends State<HomeEmployee> {
 
             const SizedBox(height: 24),
 
-
+            /// 📄 محتوى التابات
             const Expanded(
               child: TabBarView(
                 children: [
                   StateScreen(),
-                  TimelineScreen()
+                  TimelineScreen(),
                 ],
               ),
             ),

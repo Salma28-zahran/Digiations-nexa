@@ -9,6 +9,8 @@ class Department extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
@@ -19,23 +21,31 @@ class Department extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: screenHeight * 0.2),
+
+            /// 🟣 Logo
             Center(
               child: SizedBox(
                 width: screenWidth * 0.75,
                 child: Image.asset(
-                  "assets/images/logo2.png",
+                  isDark
+                      ? "assets/images/logo3.png"
+                      : "assets/images/logo2.png",
                   fit: BoxFit.contain,
                 ),
               ),
             ),
+
+            SizedBox(height: screenHeight * 0.08),
+
+            /// 🌐 Web Button
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+              padding:
+              EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
               child: GestureDetector(
                 onTap: () async {
                   await UserRoleStorage.saveRole(UserRole.employee);
                   Navigator.pushNamed(context, PageRouteName.login);
                 },
-
                 child: Container(
                   height: screenHeight * 0.07,
                   width: double.infinity,
@@ -62,15 +72,18 @@ class Department extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: screenHeight * 0.035),
+
+            /// 📱 Mobile Button
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+              padding:
+              EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
               child: GestureDetector(
                 onTap: () async {
                   await UserRoleStorage.saveRole(UserRole.employee);
                   Navigator.pushNamed(context, PageRouteName.login);
                 },
-
                 child: Container(
                   height: screenHeight * 0.07,
                   width: double.infinity,
@@ -102,5 +115,4 @@ class Department extends StatelessWidget {
       ),
     );
   }
-
 }
