@@ -1,10 +1,10 @@
-import 'package:digiations_nexa/features/home_manager/presentation/views/summary_body.dart';
-import 'package:digiations_nexa/features/home_manager/presentation/views/web_body.dart';
+import 'package:digiations_nexa/features/home_manager/presentation/views/tabs/summary_body.dart';
+import 'package:digiations_nexa/features/home_manager/presentation/views/tabs/web_body.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_tabs.dart';
-import 'mobile_body.dart';
+import 'tabs/mobile_body.dart';
 class HomeManger extends StatefulWidget {
   const HomeManger({super.key});
 
@@ -24,8 +24,8 @@ class _HomeMangerState extends State<HomeManger> {
         child: Column(
           children: [
             CustomTabs(
-              selectedIndex: selectedIndex,     // 👈 هنا
-              onTabChanged: (index) {           // 👈 وهنا
+              selectedIndex: selectedIndex,
+              onTabChanged: (index) {
                 setState(() {
                   selectedIndex = index;
                 });
@@ -40,7 +40,7 @@ class _HomeMangerState extends State<HomeManger> {
                 children: const [
                   WebBody(),
                   MobileBody(),
-                  SummaryBody(),
+                  /*SummaryBody(),*/
                 ],
               ),
             ),

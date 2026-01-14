@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/employee_cards.dart';
+import '../../widgets/employee_cards.dart';
 
 class MobileBody extends StatelessWidget {
   const MobileBody({super.key});
@@ -9,10 +9,13 @@ class MobileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        MeetingCard(),
+        EmployeeCard1(),
         SizedBox(height: 8,),
-        MeetingCard(),
-
+        EmployeeCard2(),
+        SizedBox(height: 8,),
+        EmployeeCard4(),
+        SizedBox(height: 8,),
+        EmployeeCard3(),
 
 
       ],
