@@ -40,6 +40,7 @@ dependencies:
   shared_preferences: ^2.5.4
   pluto_grid: ^8.1.0
   syncfusion_flutter_datagrid: ^32.1.23
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:

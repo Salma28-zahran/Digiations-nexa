@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
@@ -33,24 +34,25 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // ================= Header =================
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Task name',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: GoogleFonts.inter(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               IconButton(
-                icon: const Icon(Icons.close),
+                icon: Icon(Icons.close, color: Color(0xFF7A5CFF), size: 20),
                 onPressed: () => Navigator.pop(context),
               ),
             ],
           ),
 
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
-          // ================= Task name =================
           TextField(
             decoration: InputDecoration(
               hintText: 'Task name',
@@ -60,9 +62,8 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             ),
           ),
 
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
-          // ================= Description =================
           TextField(
             maxLines: 3,
             decoration: InputDecoration(
@@ -73,70 +74,81 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             ),
           ),
 
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
-          // ================= Assignee & Deadline =================
           Column(
             children: [
-              // -------- Assignee Dropdown --------
-              DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  value: selectedAssignee,
-                  isExpanded: true,
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  items: assignees.map((name) {
-                    return DropdownMenuItem<String>(
-                      value: name,
-                      child: Row(
-                        children: [
-                          const Icon(Icons.person, size: 20),
-                          const SizedBox(width: 8),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Assignee',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              Text(
-                                name,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.person, color: Color(0xFF7A5CFF), size: 20),
+                  SizedBox(width: 8),
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Assignee',
+                        style: GoogleFonts.inter(
+                          fontSize: 15,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    );
-                  }).toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      selectedAssignee = value!;
-                    });
-                  },
-                ),
+                      Text(
+                        selectedAssignee,
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+
+                  Spacer(),
+
+                  PopupMenuButton<String>(
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints(minWidth: 120),
+                    color: Color(0xFFE3EEFF),
+                    icon: Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Color(0xFF7A5CFF),
+                    ),
+                    onSelected: (value) {
+                      setState(() {
+                        selectedAssignee = value;
+                      });
+                    },
+                    itemBuilder: (context) {
+                      return assignees.map((name) {
+                        return PopupMenuItem<String>(
+                          value: name,
+                          child: Text(
+                            name,
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        );
+                      }).toList();
+                    },
+                  ),
+                ],
               ),
 
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
 
-              // -------- Deadline --------
               GestureDetector(
                 onTap: () => _pickDateTime(),
                 child: Row(
                   children: [
-                    const Icon(Icons.date_range, size: 20),
-                    const SizedBox(width: 8),
+                    Icon(Icons.date_range, color: Color(0xFF7A5CFF), size: 20),
+                    SizedBox(width: 8),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Deadline',
-                          style: TextStyle(
+                          style: GoogleFonts.inter(
                             fontSize: 15,
                             color: Colors.grey,
                             fontWeight: FontWeight.w600,
@@ -145,53 +157,56 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                         Text(
                           selectedDate == null
                               ? 'Pick date'
-                              : _formatDate(selectedDate!),
-                          style: const TextStyle(fontWeight: FontWeight.w600),
+                              : formatDate(selectedDate!),
+                          style: GoogleFonts.inter(fontWeight: FontWeight.w600),
                         ),
                       ],
                     ),
-                    const Spacer(),
-                    const Icon(Icons.calendar_today, size: 20),
+                    Spacer(),
+                    Icon(
+                      Icons.calendar_today,
+                      color: Color(0xFF7A5CFF),
+                      size: 20,
+                    ),
+                    SizedBox(width: 14),
                   ],
                 ),
               ),
             ],
           ),
 
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
 
-          // ================= Actions =================
           Row(
             children: [
               Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                    },
-                    child: Container(
-                      height: screenHeight * 0.06,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(screenHeight * 0.018),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFF2FA4FF),
-                            Color(0xFF7A5CFF),
-                            Color(0xFFFF4FD8),
-                          ],
-                        ),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    height: screenHeight * 0.06,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(screenHeight * 0.018),
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color(0xFF2FA4FF),
+                          Color(0xFF7A5CFF),
+                          Color(0xFFFF4FD8),
+                        ],
                       ),
-                      child: Center(
-                        child: Text(
-                          "Send",
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: screenHeight * 0.02,
-                            fontWeight: FontWeight.w600,
-                          ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Send",
+                        style: GoogleFonts.inter(
+                          color: Colors.white,
+                          fontSize: screenHeight * 0.02,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
                   ),
+                ),
               ),
               const SizedBox(width: 12),
               TextButton(
@@ -206,8 +221,6 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       ),
     );
   }
-
-  /* ================= Date & Time Picker ================= */
 
   Future<void> _pickDateTime() async {
     final date = await showDatePicker(
@@ -237,7 +250,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
     });
   }
 
-  String _formatDate(DateTime date) {
-    return '${date.day}/${date.month} · ${date.hour}:${date.minute.toString().padLeft(2, '0')}';
+  String formatDate(DateTime date) {
+    return DateFormat('MMMM d h:mm a').format(date).toLowerCase();
   }
 }

@@ -4,13 +4,13 @@ class CustomTabs extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onTabChanged;
 
-  const CustomTabs({
+   CustomTabs({
     super.key,
     required this.selectedIndex,
     required this.onTabChanged,
   });
 
-  final List<String> tabs = const ['Web', 'Mobile', 'Summary'];
+  final List<String> tabs =  ['Web', 'Mobile', /*'Summary'*/];
 
   @override
   Widget build(BuildContext context) {
