@@ -7,6 +7,8 @@ class EmployeeCard1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -18,15 +20,15 @@ class EmployeeCard1 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),
@@ -38,26 +40,27 @@ class EmployeeCard1 extends StatelessWidget {
                 "https://i.pravatar.cc/150?img=3",
               ),
             ),
-      
             const SizedBox(width: 12),
-      
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [  Text(
-                  "User Name",
-                  style: GoogleFonts.inter(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                children: [
+                  Text(
+                    "User Name",
+                    style: GoogleFonts.inter(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: isDark ? Colors.white : Colors.black,
+                    ),
                   ),
-                ),
                   Container(
-                    padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration:  BoxDecoration(
-                      color: Color(0xFF2FA4FF),
+                    padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF2FA4FF),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child:  Text(
+                    child: Text(
                       "Check in",
                       style: GoogleFonts.inter(
                         color: Colors.white,
@@ -66,17 +69,17 @@ class EmployeeCard1 extends StatelessWidget {
                       ),
                     ),
                   ),
-              ]
+                ],
               ),
             ),
-      
             Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding:
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child:  Text(
+              child: Text(
                 "On time",
                 style: GoogleFonts.inter(
                   color: Colors.white,
@@ -85,13 +88,11 @@ class EmployeeCard1 extends StatelessWidget {
                 ),
               ),
             ),
-      
-             SizedBox(width: 12),
-      
-             Text(
+            const SizedBox(width: 12),
+            Text(
               "9:00 am",
               style: GoogleFonts.inter(
-                color: Colors.grey,
+                color: isDark ? Colors.white60 : Colors.grey,
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
               ),
@@ -102,11 +103,14 @@ class EmployeeCard1 extends StatelessWidget {
     );
   }
 }
+
 class EmployeeCard2 extends StatelessWidget {
   const EmployeeCard2({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -118,15 +122,15 @@ class EmployeeCard2 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),
@@ -138,45 +142,46 @@ class EmployeeCard2 extends StatelessWidget {
                 "https://i.pravatar.cc/150?img=3",
               ),
             ),
-
             const SizedBox(width: 12),
-
             Expanded(
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [  Text(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     "User Name",
                     style: GoogleFonts.inter(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      color: isDark ? Colors.white : Colors.black,
                     ),
                   ),
-                    Container(
-                      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      decoration:  BoxDecoration(
-                        color: Color(0xFF2C3E50),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child:  Text(
-                        "Check Out",
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  Container(
+                    padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF2C3E50),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      "Check Out",
+                      style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ]
+                  ),
+                ],
               ),
             ),
-
             Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding:
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: Colors.orangeAccent,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child:  Text(
+              child: Text(
                 " Late ",
                 style: GoogleFonts.inter(
                   color: Colors.white,
@@ -185,13 +190,11 @@ class EmployeeCard2 extends StatelessWidget {
                 ),
               ),
             ),
-
-             SizedBox(width: 12),
-
-             Text(
+            const SizedBox(width: 12),
+            Text(
               "9:00 am",
               style: GoogleFonts.inter(
-                color: Colors.grey,
+                color: isDark ? Colors.white60 : Colors.grey,
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
               ),
@@ -202,11 +205,14 @@ class EmployeeCard2 extends StatelessWidget {
     );
   }
 }
+
 class EmployeeCard3 extends StatelessWidget {
   const EmployeeCard3({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -218,15 +224,15 @@ class EmployeeCard3 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),
@@ -238,45 +244,46 @@ class EmployeeCard3 extends StatelessWidget {
                 "https://i.pravatar.cc/150?img=3",
               ),
             ),
-
             const SizedBox(width: 12),
-
             Expanded(
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [  Text(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     "User Name",
                     style: GoogleFonts.inter(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      color: isDark ? Colors.white : Colors.black,
                     ),
                   ),
-                    Container(
-                      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      decoration:  BoxDecoration(
-                        color: Color(0xFF7A5CFF),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child:  Text(
-                        "Break",
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  Container(
+                    padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF7A5CFF),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      "Break",
+                      style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ]
+                  ),
+                ],
               ),
             ),
-
             Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding:
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: Colors.orangeAccent,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child:  Text(
+              child: Text(
                 " Late ",
                 style: GoogleFonts.inter(
                   color: Colors.white,
@@ -285,13 +292,11 @@ class EmployeeCard3 extends StatelessWidget {
                 ),
               ),
             ),
-
-             SizedBox(width: 12),
-
-             Text(
+            const SizedBox(width: 12),
+            Text(
               "9:00 am",
               style: GoogleFonts.inter(
-                color: Colors.grey,
+                color: isDark ? Colors.white60 : Colors.grey,
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
               ),
@@ -302,11 +307,14 @@ class EmployeeCard3 extends StatelessWidget {
     );
   }
 }
+
 class EmployeeCard4 extends StatelessWidget {
   const EmployeeCard4({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: () {
@@ -318,15 +326,15 @@ class EmployeeCard4 extends StatelessWidget {
         );
       },
       child: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.05),
+              color: Colors.black.withOpacity(isDark ? .25 : .05),
               blurRadius: 10,
-              offset:  Offset(0, 4),
+              offset: const Offset(0, 4),
             )
           ],
         ),
@@ -338,45 +346,46 @@ class EmployeeCard4 extends StatelessWidget {
                 "https://i.pravatar.cc/150?img=3",
               ),
             ),
-
             const SizedBox(width: 12),
-
             Expanded(
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [  Text(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     "User Name",
                     style: GoogleFonts.inter(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      color: isDark ? Colors.white : Colors.black,
                     ),
                   ),
-                    Container(
-                      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      decoration:  BoxDecoration(
-                        color: Color(0xFFE74C3C),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child:  Text(
-                        "Absent",
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  Container(
+                    padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFE74C3C),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      "Absent",
+                      style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ]
+                  ),
+                ],
               ),
             ),
-
             Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding:
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child:  Text(
+              child: Text(
                 "On Time",
                 style: GoogleFonts.inter(
                   color: Colors.white,
@@ -385,13 +394,11 @@ class EmployeeCard4 extends StatelessWidget {
                 ),
               ),
             ),
-
-             SizedBox(width: 12),
-
-             Text(
+            const SizedBox(width: 12),
+            Text(
               "9:00 am",
               style: GoogleFonts.inter(
-                color: Colors.grey,
+                color: isDark ? Colors.white60 : Colors.grey,
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
               ),
