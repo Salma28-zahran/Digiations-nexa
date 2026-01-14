@@ -30,74 +30,126 @@ class EmployeeCard1 extends StatelessWidget {
             )
           ],
         ),
-        child: Row(
+        child: Column(
           children: [
-            const CircleAvatar(
-              radius: 22,
-              backgroundImage: NetworkImage(
-                "https://i.pravatar.cc/150?img=3",
-              ),
+            Row(
+              children: [
+                const CircleAvatar(
+                  radius: 22,
+                  backgroundImage: NetworkImage(
+                    "https://i.pravatar.cc/150?img=3",
+                  ),
+                ),
+
+                const SizedBox(width: 12),
+
+                Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [  Text(
+                        "User Name",
+                        style: GoogleFonts.inter(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                        SizedBox(height: 8,),
+
+                        Container(
+                          padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration:  BoxDecoration(
+                            color: Color(0xFF2FA4FF),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child:  Text(
+                            "Check in",
+                            style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ]
+                  ),
+                ),
+
+                Container(
+                  padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child:  Text(
+                    "On time",
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+
+                SizedBox(width: 12),
+
+                Text(
+                  "9:00 am",
+                  style: GoogleFonts.inter(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
-      
-            const SizedBox(width: 12),
-      
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [  Text(
-                  "User Name",
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Break Details",
                   style: GoogleFonts.inter(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF7A5CFF),
+
                   ),
                 ),
-                  Container(
-                    padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration:  BoxDecoration(
-                      color: Color(0xFF2FA4FF),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child:  Text(
-                      "Check in",
-                      style: GoogleFonts.inter(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
+
+                SizedBox(width: 4),
+
+                PopupMenuButton<String>(
+                  offset:  Offset(0, 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  icon:  Icon(
+                    Icons.keyboard_arrow_down,
+                    size: 22,
+                    color: Color(0xFF7A5CFF),
+
+                  ),
+                  itemBuilder: (context) => [
+                    PopupMenuItem<String>(
+                      value: "start",
+                      child: Text(
+                        "Break started at 9:00 am",
+                        style: GoogleFonts.inter(fontSize: 14,fontWeight: FontWeight.w500),
                       ),
                     ),
-                  ),
-              ]
-              ),
-            ),
-      
-            Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child:  Text(
-                "On time",
-                style: GoogleFonts.inter(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                    PopupMenuItem<String>(
+                      value: "duration",
+                      child: Text(
+                        "Finished at 10:00 am",
+                        style: GoogleFonts.inter(fontSize: 16,fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-      
-             SizedBox(width: 12),
-      
-             Text(
-              "9:00 am",
-              style: GoogleFonts.inter(
-                color: Colors.grey,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+              ],
+            )
+
           ],
-        ),
+        )
       ),
     );
   }
@@ -130,74 +182,125 @@ class EmployeeCard2 extends StatelessWidget {
             )
           ],
         ),
-        child: Row(
+        child: Column(
           children: [
-            const CircleAvatar(
-              radius: 22,
-              backgroundImage: NetworkImage(
-                "https://i.pravatar.cc/150?img=3",
-              ),
-            ),
-
-            const SizedBox(width: 12),
-
-            Expanded(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [  Text(
-                    "User Name",
-                    style: GoogleFonts.inter(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
+            Row(
+              children: [
+                const CircleAvatar(
+                  radius: 22,
+                  backgroundImage: NetworkImage(
+                    "https://i.pravatar.cc/150?img=3",
                   ),
-                    Container(
-                      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      decoration:  BoxDecoration(
-                        color: Color(0xFF2C3E50),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child:  Text(
-                        "Check Out",
+                ),
+
+                const SizedBox(width: 12),
+
+                Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [  Text(
+                        "User Name",
                         style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ),
-                  ]
-              ),
-            ),
-
-            Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.orangeAccent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child:  Text(
-                " Late ",
-                style: GoogleFonts.inter(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                        SizedBox(height: 8,),
+                        Container(
+                          padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration:  BoxDecoration(
+                            color: Color(0xFF2C3E50),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child:  Text(
+                            "Check Out",
+                            style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ]
+                  ),
                 ),
-              ),
-            ),
 
-             SizedBox(width: 12),
+                Container(
+                  padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.orangeAccent,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child:  Text(
+                    " Late ",
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
 
-             Text(
-              "9:00 am",
-              style: GoogleFonts.inter(
-                color: Colors.grey,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
+                SizedBox(width: 12),
+
+                Text(
+                  "9:00 am",
+                  style: GoogleFonts.inter(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Break Details",
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF7A5CFF),
+
+                  ),
+                ),
+
+                SizedBox(width: 4),
+
+                PopupMenuButton<String>(
+                  offset:  Offset(0, 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  icon:  Icon(
+                    Icons.keyboard_arrow_down,
+                    size: 22,
+                    color: Color(0xFF7A5CFF),
+
+                  ),
+                  itemBuilder: (context) => [
+                    PopupMenuItem<String>(
+                      value: "start",
+                      child: Text(
+                        "Break started at 9:00 am",
+                        style: GoogleFonts.inter(fontSize: 14,fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: "duration",
+                      child: Text(
+                        "Finished at 10:00 am",
+                        style: GoogleFonts.inter(fontSize: 16,fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )
+
           ],
-        ),
+        )
       ),
     );
   }
@@ -230,74 +333,126 @@ class EmployeeCard3 extends StatelessWidget {
             )
           ],
         ),
-        child: Row(
+        child:Column(
           children: [
-            const CircleAvatar(
-              radius: 22,
-              backgroundImage: NetworkImage(
-                "https://i.pravatar.cc/150?img=3",
-              ),
-            ),
-
-            const SizedBox(width: 12),
-
-            Expanded(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [  Text(
-                    "User Name",
-                    style: GoogleFonts.inter(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
+            Row(
+              children: [
+                const CircleAvatar(
+                  radius: 22,
+                  backgroundImage: NetworkImage(
+                    "https://i.pravatar.cc/150?img=3",
                   ),
-                    Container(
-                      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      decoration:  BoxDecoration(
-                        color: Color(0xFF7A5CFF),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child:  Text(
-                        "Break",
+                ),
+
+                const SizedBox(width: 12),
+
+                Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [  Text(
+                        "User Name",
                         style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ),
-                  ]
-              ),
-            ),
-
-            Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.orangeAccent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child:  Text(
-                " Late ",
-                style: GoogleFonts.inter(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                        SizedBox(height: 8,),
+                        Container(
+                          padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration:  BoxDecoration(
+                            color: Color(0xFF7A5CFF),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child:  Text(
+                            "Break",
+                            style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ]
+                  ),
                 ),
-              ),
-            ),
 
-             SizedBox(width: 12),
+                Container(
+                  padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.orangeAccent,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child:  Text(
+                    " Late ",
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
 
-             Text(
-              "9:00 am",
-              style: GoogleFonts.inter(
-                color: Colors.grey,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
+                SizedBox(width: 12),
+
+                Text(
+                  "9:00 am",
+                  style: GoogleFonts.inter(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Break Details",
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF7A5CFF),
+
+                  ),
+                ),
+
+                 SizedBox(width: 4),
+
+                PopupMenuButton<String>(
+                  offset:  Offset(0, 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  icon:  Icon(
+                    Icons.keyboard_arrow_down,
+                    size: 22,
+                    color: Color(0xFF7A5CFF),
+
+                  ),
+                  itemBuilder: (context) => [
+                    PopupMenuItem<String>(
+                      value: "start",
+                      child: Text(
+                        "Break started at 9:00 am",
+                        style: GoogleFonts.inter(fontSize: 14,fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: "duration",
+                      child: Text(
+                        "Finished at 10:00 am",
+                        style: GoogleFonts.inter(fontSize: 16,fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )
+
           ],
-        ),
+        )
+
       ),
     );
   }
@@ -330,72 +485,123 @@ class EmployeeCard4 extends StatelessWidget {
             )
           ],
         ),
-        child: Row(
+        child: Column(
           children: [
-            const CircleAvatar(
-              radius: 22,
-              backgroundImage: NetworkImage(
-                "https://i.pravatar.cc/150?img=3",
-              ),
-            ),
-
-            const SizedBox(width: 12),
-
-            Expanded(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [  Text(
-                    "User Name",
-                    style: GoogleFonts.inter(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
+            Row(
+              children: [
+                const CircleAvatar(
+                  radius: 22,
+                  backgroundImage: NetworkImage(
+                    "https://i.pravatar.cc/150?img=3",
                   ),
-                    Container(
-                      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      decoration:  BoxDecoration(
-                        color: Color(0xFFE74C3C),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child:  Text(
-                        "Absent",
+                ),
+
+                const SizedBox(width: 12),
+
+                Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [  Text(
+                        "User Name",
                         style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ),
-                  ]
-              ),
-            ),
-
-            Container(
-              padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child:  Text(
-                "On Time",
-                style: GoogleFonts.inter(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                        SizedBox(height: 8,),
+                        Container(
+                          padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration:  BoxDecoration(
+                            color: Color(0xFFE74C3C),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child:  Text(
+                            "Absent",
+                            style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ]
+                  ),
                 ),
-              ),
-            ),
 
-             SizedBox(width: 12),
+                Container(
+                  padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child:  Text(
+                    "On Time",
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
 
-             Text(
-              "9:00 am",
-              style: GoogleFonts.inter(
-                color: Colors.grey,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
+                SizedBox(width: 12),
+
+                Text(
+                  "9:00 am",
+                  style: GoogleFonts.inter(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Break Details",
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF7A5CFF),
+
+                  ),
+                ),
+
+                SizedBox(width: 4),
+
+                PopupMenuButton<String>(
+                  offset:  Offset(0, 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  icon:  Icon(
+                    Icons.keyboard_arrow_down,
+                    size: 22,
+                    color: Color(0xFF7A5CFF),
+
+                  ),
+                  itemBuilder: (context) => [
+                    PopupMenuItem<String>(
+                      value: "start",
+                      child: Text(
+                        "Break started at 9:00 am",
+                        style: GoogleFonts.inter(fontSize: 14,fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: "duration",
+                      child: Text(
+                        "Finished at 10:00 am",
+                        style: GoogleFonts.inter(fontSize: 16,fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )
+
           ],
         ),
       ),
