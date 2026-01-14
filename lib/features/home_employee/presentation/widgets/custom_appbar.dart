@@ -1,5 +1,6 @@
-import 'package:digiations_nexa/core/route/routes.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/route/routes.dart';
+import '../../../../main.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -9,13 +10,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
 
+      leading: IconButton(
+        icon: Icon(
+          isDark ? Icons.dark_mode : Icons.light_mode,
+          color: Colors.deepPurple,
+        ),
+        onPressed: () {
+          themeNotifier.value =
+          isDark ? ThemeMode.light : ThemeMode.dark;
+        },
+      ),
+
       title: Image.asset(
-        'assets/images/logo2.png',
+        isDark
+            ? 'assets/images/logo3.png'
+            : 'assets/images/logo2.png',
         height: 140,
         fit: BoxFit.contain,
       ),
@@ -32,11 +49,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           onSelected: (value) {
             if (value == 0) {
-              Navigator.pushNamed(context, PageRouteName.EmployeeTasks);
+              Navigator.pushNamed(
+                context,
+                PageRouteName.EmployeeTasks,
+              );
             }
           },
-          itemBuilder: (context) => [
-            const PopupMenuItem<int>(
+          itemBuilder: (context) => const [
+            PopupMenuItem<int>(
               value: 0,
               child: Align(
                 alignment: Alignment.centerRight,
@@ -49,10 +69,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-
-            const PopupMenuDivider(),
-
-            const PopupMenuItem<int>(
+            PopupMenuDivider(),
+            PopupMenuItem<int>(
               enabled: false,
               child: Row(
                 children: [
@@ -79,20 +97,39 @@ class _NewBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(6),
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF7A5CFF),
+            Color(0xFFB388FF),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: isDark
+                ? Colors.black.withOpacity(0.4)
+                : Colors.deepPurple.withOpacity(0.25),
+            blurRadius: 6,
+            offset: const Offset(0, 3),
+          ),
+        ],
       ),
       child: const Text(
         'NEW',
         style: TextStyle(
           color: Colors.white,
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
+          fontSize: 11,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.8,
         ),
       ),
     );
   }
 }
+
+

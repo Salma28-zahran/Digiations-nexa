@@ -4,7 +4,7 @@ class StateScreen extends StatefulWidget {
   const StateScreen({super.key});
 
   @override
-  _StateScreenState createState() => _StateScreenState();
+  State<StateScreen> createState() => _StateScreenState();
 }
 
 class _StateScreenState extends State<StateScreen>
@@ -14,6 +14,7 @@ class _StateScreenState extends State<StateScreen>
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
+  /// 🎨 الألوان الأساسية (ثابتة)
   static const LinearGradient appGradient = LinearGradient(
     colors: [
       Color(0xFF2FA4FF),
@@ -22,8 +23,8 @@ class _StateScreenState extends State<StateScreen>
     ],
   );
 
-  static const Color inactiveGray = Color(0xFFE5E5E5);
-  static const Color inactiveText = Color(0xFF9E9E9E);
+  static const Color inactiveGrayLight = Color(0xFFE5E5E5);
+  static const Color inactiveTextLight = Color(0xFF9E9E9E);
 
   @override
   void initState() {
@@ -59,6 +60,18 @@ class _StateScreenState extends State<StateScreen>
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    /// 🎯 ألوان متغيرة حسب الثيم
+    final Color inactiveBg =
+    isDark ? const Color(0xFF2A2A2A) : inactiveGrayLight;
+
+    final Color inactiveText =
+    isDark ? Colors.white70 : inactiveTextLight;
+
+    final Color shadowColor =
+    isDark ? Colors.black.withOpacity(.6) : Colors.black.withOpacity(.15);
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
@@ -67,9 +80,10 @@ class _StateScreenState extends State<StateScreen>
           children: [
             const SizedBox(height: 10),
 
+            /// 🟣 كارت الحالة الحالية
             ScaleTransition(
               scale: _scaleAnimation,
-              child: _currentStateCard(),
+              child: _currentStateCard(shadowColor),
             ),
 
             const SizedBox(height: 30),
@@ -77,8 +91,18 @@ class _StateScreenState extends State<StateScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _gradientButton("Check In"),
-                _gradientButton("Break"),
+                _gradientButton(
+                  "Check In",
+                  isDark,
+                  inactiveBg,
+                  inactiveText,
+                ),
+                _gradientButton(
+                  "Break",
+                  isDark,
+                  inactiveBg,
+                  inactiveText,
+                ),
               ],
             ),
 
@@ -87,8 +111,18 @@ class _StateScreenState extends State<StateScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _gradientButton("Check Out"),
-                _gradientButton("Absent"),
+                _gradientButton(
+                  "Check Out",
+                  isDark,
+                  inactiveBg,
+                  inactiveText,
+                ),
+                _gradientButton(
+                  "Absent",
+                  isDark,
+                  inactiveBg,
+                  inactiveText,
+                ),
               ],
             ),
           ],
@@ -97,7 +131,8 @@ class _StateScreenState extends State<StateScreen>
     );
   }
 
-  Widget _currentStateCard() {
+  /// 🟪 كارت الحالة الحالية
+  Widget _currentStateCard(Color shadowColor) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
@@ -106,19 +141,19 @@ class _StateScreenState extends State<StateScreen>
         borderRadius: BorderRadius.circular(28),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(.15),
-            blurRadius: 14,
-            offset: const Offset(0, 8),
+            color: shadowColor,
+            blurRadius: 16,
+            offset: const Offset(0, 10),
           ),
         ],
       ),
       child: Column(
         children: [
-          const Text(
+          Text(
             "Current State",
             style: TextStyle(
               fontSize: 14,
-              color: Colors.white70,
+              color: Colors.white.withOpacity(.75),
             ),
           ),
           const SizedBox(height: 6),
@@ -135,8 +170,13 @@ class _StateScreenState extends State<StateScreen>
     );
   }
 
-
-  Widget _gradientButton(String label) {
+  /// 🔘 زر متدرج
+  Widget _gradientButton(
+      String label,
+      bool isDark,
+      Color inactiveBg,
+      Color inactiveText,
+      ) {
     final bool isSelected = currentState == label;
 
     return GestureDetector(
@@ -147,12 +187,12 @@ class _StateScreenState extends State<StateScreen>
         height: 48,
         decoration: BoxDecoration(
           gradient: isSelected ? appGradient : null,
-          color: isSelected ? null : inactiveGray,
+          color: isSelected ? null : inactiveBg,
           borderRadius: BorderRadius.circular(22),
           boxShadow: isSelected
               ? [
             BoxShadow(
-              color: Colors.black.withOpacity(.25),
+              color: Colors.black.withOpacity(isDark ? .6 : .25),
               blurRadius: 14,
               offset: const Offset(0, 6),
             ),

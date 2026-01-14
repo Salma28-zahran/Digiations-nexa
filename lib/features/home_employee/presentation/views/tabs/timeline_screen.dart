@@ -20,15 +20,18 @@ class _TimelineScreenState extends State<TimelineScreen> {
   static const int startHour = 9;
   static const int hoursPerDay = 8;
 
+  /// 🎨 الألوان الأساسية (ثابتة)
   static const Color blue = Color(0xFF2FA4FF);
   static const Color purple = Color(0xFF7A5CFF);
   static const Color pink = Color(0xFFFF4FD8);
 
-  static const Color background = Color(0xFFF4F6FF);
+  /// ☀️ Light colors (زي ما هي)
+  static const Color backgroundLight = Color(0xFFF4F6FF);
   static const Color rowLight = Color(0xFFFFFFFF);
   static const Color rowDark = Color(0xFFF0F2FF);
-  static const Color borderColor = Color(0xFFDDD7FF);
+  static const Color borderLight = Color(0xFFDDD7FF);
 
+  /// 📐 Sizes (ممنوع اللعب فيها 😄)
   static const double dateWidth = 140;
   static const double hourWidth = 90;
   static const double taskWidth = 220;
@@ -82,6 +85,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   Widget _cell({
     required double width,
     required Widget child,
+    required Color borderColor,
   }) {
     return Container(
       width: width,
@@ -96,31 +100,51 @@ class _TimelineScreenState extends State<TimelineScreen> {
     );
   }
 
-  Widget _row(TimelineEntry e, int index) {
+  Widget _row(
+      TimelineEntry e,
+      int index,
+      bool isDark,
+      Color rowBg1,
+      Color rowBg2,
+      Color borderColor,
+      Color textColor,
+      Color hintColor,
+      ) {
     return Container(
-      color: index.isEven ? rowLight : rowDark,
+      color: index.isEven ? rowBg1 : rowBg2,
       child: Row(
         children: [
           _cell(
             width: dateWidth,
+            borderColor: borderColor,
             child: Text(
               DateFormat('EEEE, dd MMM yyyy').format(e.dateTime),
-              style: const TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: textColor,
+              ),
             ),
           ),
           _cell(
             width: hourWidth,
+            borderColor: borderColor,
             child: Text(
               DateFormat('HH:mm').format(e.dateTime),
-              style: const TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: textColor,
+              ),
             ),
           ),
           _cell(
             width: taskWidth,
+            borderColor: borderColor,
             child: TextField(
               controller: e.task,
-              decoration: const InputDecoration(
+              style: TextStyle(color: textColor),
+              decoration: InputDecoration(
                 hintText: 'Task',
+                hintStyle: TextStyle(color: hintColor),
                 border: InputBorder.none,
                 isDense: true,
               ),
@@ -128,10 +152,13 @@ class _TimelineScreenState extends State<TimelineScreen> {
           ),
           _cell(
             width: messageWidth,
+            borderColor: borderColor,
             child: TextField(
               controller: e.message,
-              decoration: const InputDecoration(
+              style: TextStyle(color: textColor),
+              decoration: InputDecoration(
                 hintText: 'Message',
+                hintStyle: TextStyle(color: hintColor),
                 border: InputBorder.none,
                 isDense: true,
               ),
@@ -139,10 +166,13 @@ class _TimelineScreenState extends State<TimelineScreen> {
           ),
           _cell(
             width: projectWidth,
+            borderColor: borderColor,
             child: TextField(
               controller: e.project,
-              decoration: const InputDecoration(
+              style: TextStyle(color: textColor),
+              decoration: InputDecoration(
                 hintText: 'Project',
+                hintStyle: TextStyle(color: hintColor),
                 border: InputBorder.none,
                 isDense: true,
               ),
@@ -161,7 +191,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
       child: Text(
         title,
         style: const TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold),
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
@@ -175,6 +207,27 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    /// 🌙 Dark colors (بس اللي اتغير)
+    final Color background =
+    isDark ? const Color(0xFF121212) : backgroundLight;
+
+    final Color rowBg1 =
+    isDark ? const Color(0xFF1C1C1C) : rowLight;
+
+    final Color rowBg2 =
+    isDark ? const Color(0xFF232323) : rowDark;
+
+    final Color borderColor =
+    isDark ? const Color(0xFF2E2E2E) : borderLight;
+
+    final Color textColor =
+    isDark ? Colors.white : Colors.black87;
+
+    final Color hintColor =
+    isDark ? Colors.white60 : Colors.black45;
+
     return Scaffold(
       backgroundColor: background,
       body: SingleChildScrollView(
@@ -209,7 +262,16 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 child: ListView.builder(
                   controller: _verticalController,
                   itemCount: _entries.length,
-                  itemBuilder: (_, i) => _row(_entries[i], i),
+                  itemBuilder: (_, i) => _row(
+                    _entries[i],
+                    i,
+                    isDark,
+                    rowBg1,
+                    rowBg2,
+                    borderColor,
+                    textColor,
+                    hintColor,
+                  ),
                 ),
               ),
             ],
