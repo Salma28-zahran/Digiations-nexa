@@ -1,6 +1,7 @@
 import 'package:digiations_nexa/features/home_employee/presentation/widgets/model.dart'
     show TimelineEntry;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class TimelineScreen extends StatefulWidget {
@@ -20,18 +21,13 @@ class _TimelineScreenState extends State<TimelineScreen> {
   static const int startHour = 9;
   static const int hoursPerDay = 8;
 
-  /// 🎨 الألوان الأساسية (ثابتة)
-  static const Color blue = Color(0xFF2FA4FF);
-  static const Color purple = Color(0xFF7A5CFF);
-  static const Color pink = Color(0xFFFF4FD8);
 
-  /// ☀️ Light colors (زي ما هي)
+
   static const Color backgroundLight = Color(0xFFF4F6FF);
   static const Color rowLight = Color(0xFFFFFFFF);
   static const Color rowDark = Color(0xFFF0F2FF);
   static const Color borderLight = Color(0xFFDDD7FF);
 
-  /// 📐 Sizes (ممنوع اللعب فيها 😄)
   static const double dateWidth = 140;
   static const double hourWidth = 90;
   static const double taskWidth = 220;
@@ -119,7 +115,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
             borderColor: borderColor,
             child: Text(
               DateFormat('EEEE, dd MMM yyyy').format(e.dateTime),
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,
                 color: textColor,
               ),
@@ -130,8 +126,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
             borderColor: borderColor,
             child: Text(
               DateFormat('HH:mm').format(e.dateTime),
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
+              style: GoogleFonts.poppins(
+
+              fontWeight: FontWeight.w600,
                 color: textColor,
               ),
             ),
@@ -141,7 +138,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
             borderColor: borderColor,
             child: TextField(
               controller: e.task,
-              style: TextStyle(color: textColor),
+
+              style: GoogleFonts.poppins(
+                  color: textColor),
               decoration: InputDecoration(
                 hintText: 'Task',
                 hintStyle: TextStyle(color: hintColor),
@@ -155,10 +154,13 @@ class _TimelineScreenState extends State<TimelineScreen> {
             borderColor: borderColor,
             child: TextField(
               controller: e.message,
-              style: TextStyle(color: textColor),
+              style: GoogleFonts.poppins(
+
+              color: textColor),
               decoration: InputDecoration(
                 hintText: 'Message',
-                hintStyle: TextStyle(color: hintColor),
+                hintStyle: GoogleFonts.poppins(
+                  color: hintColor),
                 border: InputBorder.none,
                 isDense: true,
               ),
@@ -172,7 +174,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
               style: TextStyle(color: textColor),
               decoration: InputDecoration(
                 hintText: 'Project',
-                hintStyle: TextStyle(color: hintColor),
+                hintStyle: GoogleFonts.poppins(
+                  color: hintColor),
                 border: InputBorder.none,
                 isDense: true,
               ),
@@ -190,8 +193,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
       padding: const EdgeInsets.symmetric(vertical: 14),
       child: Text(
         title,
-        style: const TextStyle(
-          color: Colors.white,
+        style: GoogleFonts.poppins(
+
+        color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -209,7 +213,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
-    /// 🌙 Dark colors (بس اللي اتغير)
     final Color background =
     isDark ? const Color(0xFF121212) : backgroundLight;
 
@@ -238,12 +241,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
           child: Column(
             children: [
               Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [blue, purple, pink],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
+                decoration:  BoxDecoration(
+          color: Color(0xFF4A90E2),
                   borderRadius:
                   BorderRadius.vertical(bottom: Radius.circular(16)),
                 ),

@@ -15,7 +15,6 @@ class _HomeEmployeeState extends State<HomeEmployee> {
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
-    /// 🎨 ألوان حسب الثيم
     final Color tabBg =
     isDark ? const Color(0xFF1F1F1F) : Colors.grey.shade200;
 
@@ -31,7 +30,6 @@ class _HomeEmployeeState extends State<HomeEmployee> {
           children: [
             const SizedBox(height: 16),
 
-            /// 🟣 TabBar
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
@@ -44,13 +42,7 @@ class _HomeEmployeeState extends State<HomeEmployee> {
                 child: TabBar(
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF2FA4FF),
-                        Color(0xFF7A5CFF),
-                        Color(0xFFFF4FD8),
-                      ],
-                    ),
+                      color: Color(0xFF4A90E2)
                   ),
                   indicatorSize: TabBarIndicatorSize.tab,
                   dividerColor: Colors.transparent,
@@ -67,7 +59,6 @@ class _HomeEmployeeState extends State<HomeEmployee> {
 
             const SizedBox(height: 24),
 
-            /// 📄 محتوى التابات
             const Expanded(
               child: TabBarView(
                 children: [

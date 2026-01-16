@@ -20,7 +20,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(18),
       borderSide: BorderSide(
-        color: isDark ? Colors.grey.shade700 : const Color(0xFFB9C0FF),
+        color: isDark ? Colors.grey.shade700 : const  Color(0xFF4A90E2),
       ),
     );
   }
@@ -43,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     final textColor = isDark ? Colors.white : Colors.black87;
     final hintColor = isDark ? Colors.grey.shade400 : Colors.grey;
-    final iconColor = const Color(0xFF7A5CFF);
+    final iconColor = Color(0xFF4A90E2);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -54,9 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(
                 width: screenWidth * 0.75,
                 child: Image.asset(
-                  isDark
-                      ? "assets/images/logo3.png"
-                      : "assets/images/logo2.png",
+                  "assets/images/auth_logo.png"
                 ),
               ),
 
@@ -69,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     border: Border.all(
                       color: isDark
                           ? Colors.grey.shade700
-                          : const Color(0xFFB9C0FF),
+                          :  Color(0xFF4A90E2),
                       width: 3,
                     ),
                     gradient: LinearGradient(
@@ -101,7 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               Text(
                 "Profile Image",
-                style: GoogleFonts.inter(
+                style: GoogleFonts.poppins(
                   color: iconColor,
                   fontSize: screenHeight * 0.02,
                 ),
@@ -167,18 +165,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: screenHeight * 0.07,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFF2FA4FF),
-                          Color(0xFF7A5CFF),
-                          Color(0xFFFF4FD8),
-                        ],
-                      ),
+                        color: Color(0xFF4A90E2)
                     ),
                     child: Center(
                       child: Text(
                         "Register",
-                        style: GoogleFonts.inter(
+                        style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: screenHeight * 0.02,
                           fontWeight: FontWeight.w600,
@@ -197,7 +189,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   Text(
                     "already have an account? ",
-                    style: GoogleFonts.inter(
+                    style: GoogleFonts.poppins(
                       color: hintColor,
                       fontSize: screenHeight * 0.016,
                     ),
@@ -208,7 +200,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     child: Text(
                       "login",
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         color: iconColor,
                         fontSize: screenHeight * 0.016,
                         fontWeight: FontWeight.w600,
@@ -239,16 +231,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
       padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
       child: TextField(
         obscureText: obscure ? _obscurePassword : false,
-        style: GoogleFonts.inter(
+        style: GoogleFonts.poppins(
           color: isDark ? Colors.white : Colors.black87,
           fontSize: screenHeight * 0.02,
         ),
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: GoogleFonts.inter(
+          hintStyle:  GoogleFonts.poppins(
             color: isDark ? Colors.grey.shade400 : Colors.grey,
           ),
-          prefixIcon: Icon(icon, color: const Color(0xFF7A5CFF)),
+          prefixIcon: Icon(icon, color: Color(0xFF4A90E2)),
           suffixIcon: suffix,
           filled: true,
           fillColor:

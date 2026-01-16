@@ -1,5 +1,6 @@
 import 'package:digiations_nexa/features/home_employee/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class EmployeeTasks extends StatefulWidget {
   const EmployeeTasks({super.key});
@@ -43,7 +44,7 @@ class _EmployeeTasksState extends State<EmployeeTasks>
       leading: IconButton(
         icon: const Icon(
           Icons.arrow_back_ios_new,
-          color: Color(0xFF7A5CFF),
+            color: Color(0xFF4A90E2)
         ),
         onPressed: () {
           Navigator.pop(context);
@@ -51,10 +52,8 @@ class _EmployeeTasksState extends State<EmployeeTasks>
       ),
 
       title: Image.asset(
-        isDark
-            ? 'assets/images/logo3.png'
-            : 'assets/images/logo2.png',
-        height: 140,
+        "assets/images/logo.png",
+        height: 60,
         fit: BoxFit.contain,
       ),
       ),
@@ -66,28 +65,36 @@ class _EmployeeTasksState extends State<EmployeeTasks>
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
-              height: 48,
+              height: 44,
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: isDark ? const Color(0xFF1E1E1E) : Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(30),
+                color: isDark ? const Color(0xFF1C1C1C) : const Color(0xFFE9ECF5),
+                borderRadius: BorderRadius.circular(18),
               ),
               child: TabBar(
                 controller: _tabController,
+                indicatorAnimation: TabIndicatorAnimation.linear,
+                indicatorSize: TabBarIndicatorSize.tab,
+                dividerColor: Colors.transparent,
+                splashBorderRadius: BorderRadius.circular(14),
                 indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFF2FA4FF),
-                      Color(0xFF7A5CFF),
-                      Color(0xFFFF4FD8),
-                    ],
-                  ),
+                  color: const Color(0xFF4A90E2),
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(.18),
+                      blurRadius: 8,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                 ),
                 labelColor: Colors.white,
+                labelStyle: GoogleFonts.poppins(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
                 unselectedLabelColor:
                 isDark ? Colors.white70 : Colors.black54,
-                indicatorSize: TabBarIndicatorSize.tab,
                 tabs: const [
                   Tab(text: 'New'),
                   Tab(text: 'In Progress'),
@@ -96,6 +103,7 @@ class _EmployeeTasksState extends State<EmployeeTasks>
               ),
             ),
           ),
+
 
           const SizedBox(height: 16),
 
@@ -138,7 +146,7 @@ class _EmployeeTasksState extends State<EmployeeTasks>
             children: [
               Text(
                 'Task Title ${index + 1}',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: textColor,
@@ -147,7 +155,7 @@ class _EmployeeTasksState extends State<EmployeeTasks>
               const SizedBox(height: 8),
               Text(
                 'Task description goes here and explains what the employee should do.',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 13,
                   color: textColor.withOpacity(.7),
                 ),
