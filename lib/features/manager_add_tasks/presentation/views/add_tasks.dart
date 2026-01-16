@@ -21,9 +21,23 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final bgColor = isDark ? const Color(0xFF1E1E1E) : Colors.white;
+    final fieldColor = isDark ? const Color(0xFF2A2A2A) : Colors.white;
+    final borderColor =
+    isDark ? Colors.white24 : Colors.grey.shade300;
+    final textColor = isDark ? Colors.white : Colors.black;
+    final hintColor =
+    isDark ? Colors.white54 : Colors.grey;
+
     final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-    return Padding(
+
+    return Container(
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+      ),
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom,
         left: 16,
@@ -34,6 +48,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /// Header
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -42,167 +57,193 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 style: GoogleFonts.inter(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
+                  color: textColor,
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.close, color: Color(0xFF7A5CFF), size: 20),
+                icon: const Icon(
+                  Icons.close,
+                  color: Color(0xFF7A5CFF),
+                  size: 20,
+                ),
                 onPressed: () => Navigator.pop(context),
               ),
             ],
           ),
 
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
 
+          /// Task name
           TextField(
+            style: TextStyle(color: textColor),
             decoration: InputDecoration(
               hintText: 'Task name',
+              hintStyle: TextStyle(color: hintColor),
+              filled: true,
+              fillColor: fieldColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: borderColor),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: borderColor),
               ),
             ),
           ),
 
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
 
+          /// Description
           TextField(
             maxLines: 3,
+            style: TextStyle(color: textColor),
             decoration: InputDecoration(
               hintText: 'Description',
+              hintStyle: TextStyle(color: hintColor),
+              filled: true,
+              fillColor: fieldColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: borderColor),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: borderColor),
               ),
             ),
           ),
 
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
-          Column(
+          /// Assignee
+          Row(
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
+              const Icon(Icons.person, color: Color(0xFF7A5CFF), size: 20),
+              const SizedBox(width: 8),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.person, color: Color(0xFF7A5CFF), size: 20),
-                  SizedBox(width: 8),
-
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Assignee',
-                        style: GoogleFonts.inter(
-                          fontSize: 15,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      Text(
-                        selectedAssignee,
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-
-                  Spacer(),
-
-                  PopupMenuButton<String>(
-                    padding: EdgeInsets.zero,
-                    constraints: BoxConstraints(minWidth: 120),
-                    color: Color(0xFFE3EEFF),
-                    icon: Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Color(0xFF7A5CFF),
+                  Text(
+                    'Assignee',
+                    style: GoogleFonts.inter(
+                      fontSize: 14,
+                      color: hintColor,
+                      fontWeight: FontWeight.w600,
                     ),
-                    onSelected: (value) {
-                      setState(() {
-                        selectedAssignee = value;
-                      });
-                    },
-                    itemBuilder: (context) {
-                      return assignees.map((name) {
-                        return PopupMenuItem<String>(
-                          value: name,
-                          child: Text(
-                            name,
-                            style: GoogleFonts.inter(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        );
-                      }).toList();
-                    },
+                  ),
+                  Text(
+                    selectedAssignee,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: textColor,
+                    ),
                   ),
                 ],
               ),
 
-              SizedBox(height: 12),
+              const Spacer(),
 
-              GestureDetector(
-                onTap: () => _pickDateTime(),
-                child: Row(
-                  children: [
-                    Icon(Icons.date_range, color: Color(0xFF7A5CFF), size: 20),
-                    SizedBox(width: 8),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Deadline',
-                          style: GoogleFonts.inter(
-                            fontSize: 15,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Text(
-                          selectedDate == null
-                              ? 'Pick date'
-                              : formatDate(selectedDate!),
-                          style: GoogleFonts.inter(fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                    Spacer(),
-                    Icon(
-                      Icons.calendar_today,
-                      color: Color(0xFF7A5CFF),
-                      size: 20,
-                    ),
-                    SizedBox(width: 14),
-                  ],
+              PopupMenuButton<String>(
+                color: isDark
+                    ? const Color(0xFF2A2A2A)
+                    : const Color(0xFFE3EEFF),
+                icon: const Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Color(0xFF7A5CFF),
                 ),
+                onSelected: (value) {
+                  setState(() {
+                    selectedAssignee = value;
+                  });
+                },
+                itemBuilder: (context) {
+                  return assignees.map((name) {
+                    return PopupMenuItem<String>(
+                      value: name,
+                      child: Text(
+                        name,
+                        style: TextStyle(color: textColor),
+                      ),
+                    );
+                  }).toList();
+                },
               ),
             ],
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 12),
 
+          /// Deadline
+          GestureDetector(
+            onTap: _pickDateTime,
+            child: Row(
+              children: [
+                const Icon(Icons.date_range,
+                    color: Color(0xFF7A5CFF), size: 20),
+                const SizedBox(width: 8),
+
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Deadline',
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                        color: hintColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      selectedDate == null
+                          ? 'Pick date'
+                          : formatDate(selectedDate!),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: textColor,
+                      ),
+                    ),
+                  ],
+                ),
+
+                const Spacer(),
+
+                const Icon(
+                  Icons.calendar_today,
+                  color: Color(0xFF7A5CFF),
+                  size: 20,
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          /// Buttons
           Row(
             children: [
               Expanded(
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: screenHeight * 0.06,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(screenHeight * 0.018),
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFF2FA4FF),
-                          Color(0xFF7A5CFF),
-                          Color(0xFFFF4FD8),
-                        ],
-                      ),
+                child: Container(
+                  height: screenHeight * 0.06,
+                  decoration: BoxDecoration(
+                    borderRadius:
+                    BorderRadius.circular(screenHeight * 0.018),
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xFF2FA4FF),
+                        Color(0xFF7A5CFF),
+                        Color(0xFFFF4FD8),
+                      ],
                     ),
-                    child: Center(
-                      child: Text(
-                        "Send",
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: screenHeight * 0.02,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Send",
+                      style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: screenHeight * 0.02,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -211,7 +252,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               const SizedBox(width: 12),
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel'),
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(color: hintColor),
+                ),
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StateScreen extends StatefulWidget {
   const StateScreen({super.key});
@@ -14,14 +15,7 @@ class _StateScreenState extends State<StateScreen>
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
-  /// 🎨 الألوان الأساسية (ثابتة)
-  static const LinearGradient appGradient = LinearGradient(
-    colors: [
-      Color(0xFF2FA4FF),
-      Color(0xFF7A5CFF),
-      Color(0xFFFF4FD8),
-    ],
-  );
+  static const Color primaryBlue = Color(0xFF4A90E2);
 
   static const Color inactiveGrayLight = Color(0xFFE5E5E5);
   static const Color inactiveTextLight = Color(0xFF9E9E9E);
@@ -62,7 +56,6 @@ class _StateScreenState extends State<StateScreen>
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
-    /// 🎯 ألوان متغيرة حسب الثيم
     final Color inactiveBg =
     isDark ? const Color(0xFF2A2A2A) : inactiveGrayLight;
 
@@ -80,7 +73,6 @@ class _StateScreenState extends State<StateScreen>
           children: [
             const SizedBox(height: 10),
 
-            /// 🟣 كارت الحالة الحالية
             ScaleTransition(
               scale: _scaleAnimation,
               child: _currentStateCard(shadowColor),
@@ -91,18 +83,8 @@ class _StateScreenState extends State<StateScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _gradientButton(
-                  "Check In",
-                  isDark,
-                  inactiveBg,
-                  inactiveText,
-                ),
-                _gradientButton(
-                  "Break",
-                  isDark,
-                  inactiveBg,
-                  inactiveText,
-                ),
+                _button("Check In", isDark, inactiveBg, inactiveText),
+                _button("Break", isDark, inactiveBg, inactiveText),
               ],
             ),
 
@@ -111,18 +93,8 @@ class _StateScreenState extends State<StateScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _gradientButton(
-                  "Check Out",
-                  isDark,
-                  inactiveBg,
-                  inactiveText,
-                ),
-                _gradientButton(
-                  "Absent",
-                  isDark,
-                  inactiveBg,
-                  inactiveText,
-                ),
+                _button("Check Out", isDark, inactiveBg, inactiveText),
+                _button("Absent", isDark, inactiveBg, inactiveText),
               ],
             ),
           ],
@@ -131,13 +103,12 @@ class _StateScreenState extends State<StateScreen>
     );
   }
 
-  /// 🟪 كارت الحالة الحالية
   Widget _currentStateCard(Color shadowColor) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
       decoration: BoxDecoration(
-        gradient: appGradient,
+        color: primaryBlue,
         borderRadius: BorderRadius.circular(28),
         boxShadow: [
           BoxShadow(
@@ -151,7 +122,7 @@ class _StateScreenState extends State<StateScreen>
         children: [
           Text(
             "Current State",
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 14,
               color: Colors.white.withOpacity(.75),
             ),
@@ -159,7 +130,7 @@ class _StateScreenState extends State<StateScreen>
           const SizedBox(height: 6),
           Text(
             currentState,
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 24,
               fontWeight: FontWeight.w700,
               color: Colors.white,
@@ -170,8 +141,7 @@ class _StateScreenState extends State<StateScreen>
     );
   }
 
-  /// 🔘 زر متدرج
-  Widget _gradientButton(
+  Widget _button(
       String label,
       bool isDark,
       Color inactiveBg,
@@ -186,8 +156,7 @@ class _StateScreenState extends State<StateScreen>
         width: 140,
         height: 48,
         decoration: BoxDecoration(
-          gradient: isSelected ? appGradient : null,
-          color: isSelected ? null : inactiveBg,
+          color: isSelected ? primaryBlue : inactiveBg,
           borderRadius: BorderRadius.circular(22),
           boxShadow: isSelected
               ? [
@@ -202,7 +171,7 @@ class _StateScreenState extends State<StateScreen>
         alignment: Alignment.center,
         child: Text(
           label,
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 16,
             fontWeight: FontWeight.w700,
             color: isSelected ? Colors.white : inactiveText,

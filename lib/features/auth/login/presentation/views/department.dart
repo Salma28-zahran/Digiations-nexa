@@ -10,7 +10,6 @@ class Department extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
@@ -22,14 +21,11 @@ class Department extends StatelessWidget {
           children: [
             SizedBox(height: screenHeight * 0.2),
 
-            /// 🟣 Logo
             Center(
               child: SizedBox(
                 width: screenWidth * 0.75,
                 child: Image.asset(
-                  isDark
-                      ? "assets/images/logo3.png"
-                      : "assets/images/logo2.png",
+                  "assets/images/auth_logo.png",
                   fit: BoxFit.contain,
                 ),
               ),
@@ -37,7 +33,6 @@ class Department extends StatelessWidget {
 
             SizedBox(height: screenHeight * 0.08),
 
-            /// 🌐 Web Button
             Padding(
               padding:
               EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
@@ -51,18 +46,12 @@ class Department extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF2FA4FF),
-                        Color(0xFF7A5CFF),
-                        Color(0xFFFF4FD8),
-                      ],
-                    ),
+                      color: Color(0xFF4A90E2)
                   ),
                   child: Center(
                     child: Text(
                       "web",
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w600,
@@ -75,7 +64,6 @@ class Department extends StatelessWidget {
 
             SizedBox(height: screenHeight * 0.035),
 
-            /// 📱 Mobile Button
             Padding(
               padding:
               EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
@@ -88,19 +76,13 @@ class Department extends StatelessWidget {
                   height: screenHeight * 0.07,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF2FA4FF),
-                        Color(0xFF7A5CFF),
-                        Color(0xFFFF4FD8),
-                      ],
-                    ),
+                    borderRadius: BorderRadius.circular(8),
+                      color: Color(0xFF4A90E2)
                   ),
                   child: Center(
                     child: Text(
                       "mobile",
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w600,

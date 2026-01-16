@@ -23,7 +23,7 @@ class Position extends StatelessWidget {
               child: SizedBox(
                 width: screenWidth * 0.75,
                 child: Image.asset(
-                  "assets/images/logo2.png",
+                  "assets/images/auth_logo.png",
                   fit: BoxFit.contain,
                 ),
               ),
@@ -43,18 +43,12 @@ class Position extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF2FA4FF),
-                        Color(0xFF7A5CFF),
-                        Color(0xFFFF4FD8),
-                      ],
-                    ),
+                     color: Color(0xFF4A90E2)
                   ),
                   child: Center(
                     child: Text(
                       "manager",
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w600,
@@ -78,18 +72,12 @@ class Position extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF2FA4FF),
-                        Color(0xFF7A5CFF),
-                        Color(0xFFFF4FD8),
-                      ],
-                    ),
+                    color: Color(0xFF4A90E2),
                   ),
                   child: Center(
                     child: Text(
                       "emloyee",
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w600,

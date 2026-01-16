@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/route/routes.dart';
 import '../../../../main.dart';
 
@@ -21,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: Icon(
           isDark ? Icons.dark_mode : Icons.light_mode,
-          color: Colors.deepPurple,
+            color: Color(0xFF4A90E2)
         ),
         onPressed: () {
           themeNotifier.value =
@@ -30,10 +31,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
 
       title: Image.asset(
-        isDark
-            ? 'assets/images/logo3.png'
-            : 'assets/images/logo2.png',
-        height: 140,
+        "assets/images/logo.png",
+        height: 60,
         fit: BoxFit.contain,
       ),
 
@@ -45,7 +44,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           icon: const Icon(
             Icons.mail,
-            color: Color(0xFF7A5CFF),
+              color: Color(0xFF4A90E2)
           ),
           onSelected: (value) {
             if (value == 0) {
@@ -55,31 +54,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               );
             }
           },
-          itemBuilder: (context) => const [
+          itemBuilder: (context) => [
             PopupMenuItem<int>(
               value: 0,
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Text(
                   'See all',
-                  style: TextStyle(
-                    color: Colors.blue,
+                  style: GoogleFonts.poppins(
+                    color: Color(0xFF4A90E2),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-            PopupMenuDivider(),
+            const PopupMenuDivider(),
             PopupMenuItem<int>(
               enabled: false,
               child: Row(
                 children: [
-                  _NewBadge(),
-                  SizedBox(width: 10),
+                  const _NewBadge(),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: Text(
                       'New task assigned to you',
-                      style: TextStyle(fontSize: 14),
+                      style:GoogleFonts.poppins(
+                          fontSize: 14),
                     ),
                   ),
                 ],
@@ -102,12 +102,7 @@ class _NewBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Color(0xFF7A5CFF),
-            Color(0xFFB388FF),
-          ],
-        ),
+          color: Color(0xFF4A90E2),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -119,9 +114,9 @@ class _NewBadge extends StatelessWidget {
           ),
         ],
       ),
-      child: const Text(
+      child:  Text(
         'NEW',
-        style: TextStyle(
+        style: GoogleFonts.poppins(
           color: Colors.white,
           fontSize: 11,
           fontWeight: FontWeight.w700,

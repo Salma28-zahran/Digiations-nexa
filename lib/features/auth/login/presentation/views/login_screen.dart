@@ -42,14 +42,14 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          /// 🌙 Theme Toggle (Top Left)
+
           Positioned(
             top: 40,
             left: 16,
             child: IconButton(
               icon: Icon(
                 isDark ? Icons.dark_mode : Icons.light_mode,
-                color: Colors.deepPurple,
+                  color: Color(0xFF4A90E2)
               ),
               onPressed: () {
                 themeNotifier.value =
@@ -58,29 +58,27 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
 
-          /// 🔐 Login Content
+
           Center(
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  /// 🟣 Logo
+
                   SizedBox(
                     width: screenWidth * 0.75,
                     child: Image.asset(
-                      isDark
-                          ? "assets/images/logo3.png"
-                          : "assets/images/logo2.png",
+                      "assets/images/auth_logo.png",
                       fit: BoxFit.contain,
                     ),
                   ),
 
-                  /// 📧 Email
+
                   Padding(
                     padding:
                     EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                     child: TextField(
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         fontSize: screenHeight * 0.02,
                         color: textColor,
                       ),
@@ -94,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         prefixIcon: const Icon(
                           Icons.email_outlined,
-                          color: Color(0xFF7A5CFF),
+                            color: Color(0xFF4A90E2)
                         ),
                         enabledBorder:
                         _border(screenHeight * 0.04, fieldBorder),
@@ -110,13 +108,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   SizedBox(height: screenHeight * 0.02),
 
-                  /// 🔒 Password
+
                   Padding(
                     padding:
                     EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                     child: TextField(
                       obscureText: _obscurePassword,
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         fontSize: screenHeight * 0.02,
                         color: textColor,
                       ),
@@ -130,14 +128,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         prefixIcon: const Icon(
                           Icons.lock_outline,
-                          color: Color(0xFF7A5CFF),
+                            color: Color(0xFF4A90E2)
                         ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
                                 ? Icons.visibility_off_outlined
                                 : Icons.visibility_outlined,
-                            color: const Color(0xFF7A5CFF),
+                              color: Color(0xFF4A90E2)
                           ),
                           onPressed: () {
                             setState(() {
@@ -159,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   SizedBox(height: screenHeight * 0.01),
 
-                  /// ❓ Forgot Password
+
                   Padding(
                     padding:
                     EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
@@ -169,8 +167,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {},
                         child: Text(
                           "Forgot Password?",
-                          style: GoogleFonts.inter(
-                            color: const Color(0xFF7A5CFF),
+                          style: GoogleFonts.poppins(
+                            color: Color(0xFF4A90E2),
                             fontSize: screenHeight * 0.016,
                             fontWeight: FontWeight.w500,
                           ),
@@ -181,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   SizedBox(height: screenHeight * 0.015),
 
-                  /// 🔘 Login Button
+
                   Padding(
                     padding:
                     EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
@@ -203,18 +201,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               screenHeight * 0.018),
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color(0xFF2FA4FF),
-                              Color(0xFF7A5CFF),
-                              Color(0xFFFF4FD8),
-                            ],
-                          ),
+                          color: Color(0xFF4A90E2)
+
                         ),
                         child: Center(
                           child: Text(
                             "Login",
-                            style: GoogleFonts.inter(
+                            style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: screenHeight * 0.02,
                               fontWeight: FontWeight.w600,
@@ -227,13 +220,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   SizedBox(height: screenHeight * 0.012),
 
-                  /// 📝 Register
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Don’t have an account? ",
-                        style: GoogleFonts.inter(
+                        style: GoogleFonts.poppins(
                           color:
                           isDark ? Colors.white70 : Colors.grey,
                           fontSize: screenHeight * 0.016,
@@ -246,8 +239,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         child: Text(
                           "Register",
-                          style: GoogleFonts.inter(
-                            color: const Color(0xFF7A5CFF),
+                          style: GoogleFonts.poppins(
+                            color: Color(0xFF4A90E2),
                             fontSize: screenHeight * 0.016,
                             fontWeight: FontWeight.w600,
                           ),
