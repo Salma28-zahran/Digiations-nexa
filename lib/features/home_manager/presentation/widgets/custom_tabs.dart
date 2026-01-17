@@ -40,13 +40,7 @@ class CustomTabs extends StatelessWidget {
                   width: tabWidth,
                   height: 40,
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF2FA4FF),
-                        Color(0xFF7A5CFF),
-                        Color(0xFFFF4FD8),
-                      ],
-                    ),
+                  color: Color(0xFF4A90E2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
