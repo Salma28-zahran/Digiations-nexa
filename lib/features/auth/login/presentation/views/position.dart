@@ -47,7 +47,7 @@ class Position extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "manager",
+                      "Manager",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
@@ -76,7 +76,7 @@ class Position extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "emloyee",
+                      "Employee",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,

@@ -58,7 +58,7 @@ class _TimelineScreenState extends State<EmployeeDetails> {
 
   void _onScroll() {
     if (_verticalController.position.pixels >=
-        _verticalController.position.maxScrollExtent &&
+            _verticalController.position.maxScrollExtent &&
         !_loading) {
       _loading = true;
       _loadNextDay();
@@ -102,15 +102,15 @@ class _TimelineScreenState extends State<EmployeeDetails> {
   }
 
   Widget _row(
-      TimelineEntry e,
-      int index,
-      bool isDark,
-      Color rowBg1,
-      Color rowBg2,
-      Color borderColor,
-      Color textColor,
-      Color hintColor,
-      ) {
+    TimelineEntry e,
+    int index,
+    bool isDark,
+    Color rowBg1,
+    Color rowBg2,
+    Color borderColor,
+    Color textColor,
+    Color hintColor,
+  ) {
     return Container(
       color: index.isEven ? rowBg1 : rowBg2,
       child: Row(
@@ -120,10 +120,7 @@ class _TimelineScreenState extends State<EmployeeDetails> {
             borderColor: borderColor,
             child: Text(
               DateFormat('EEEE, dd MMM yyyy').format(e.dateTime),
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: textColor,
-              ),
+              style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
             ),
           ),
           _cell(
@@ -131,10 +128,7 @@ class _TimelineScreenState extends State<EmployeeDetails> {
             borderColor: borderColor,
             child: Text(
               DateFormat('HH:mm').format(e.dateTime),
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: textColor,
-              ),
+              style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
             ),
           ),
           _cell(
@@ -211,29 +205,25 @@ class _TimelineScreenState extends State<EmployeeDetails> {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
     /// 🌙 Dark colors (بس اللي اتغير)
-    final Color background =
-    isDark ? const Color(0xFF121212) : backgroundLight;
+    final Color background = isDark ? const Color(0xFF121212) : backgroundLight;
 
-    final Color rowBg1 =
-    isDark ? const Color(0xFF1C1C1C) : rowLight;
+    final Color rowBg1 = isDark ? const Color(0xFF1C1C1C) : rowLight;
 
-    final Color rowBg2 =
-    isDark ? const Color(0xFF232323) : rowDark;
+    final Color rowBg2 = isDark ? const Color(0xFF232323) : rowDark;
 
-    final Color borderColor =
-    isDark ? const Color(0xFF2E2E2E) : borderLight;
+    final Color borderColor = isDark ? const Color(0xFF2E2E2E) : borderLight;
 
-    final Color textColor =
-    isDark ? Colors.white : Colors.black87;
+    final Color textColor = isDark ? Colors.white : Colors.black87;
 
-    final Color hintColor =
-    isDark ? Colors.white60 : Colors.black45;
+    final Color hintColor = isDark ? Colors.white60 : Colors.black45;
 
     return Scaffold(
-     // backgroundColor: background,
-      backgroundColor: isDark ? const Color(0xFF121212) : const Color(0xFFF4F6FF),
+      // backgroundColor: background,
+      backgroundColor: isDark
+          ? const Color(0xFF121212)
+          : const Color(0xFFF4F6FF),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Color(0xFF7A5CFF)),
+        iconTheme: const IconThemeData(color: Color(0xFF4A90E2)),
         title: Text(
           'User Name',
           style: GoogleFonts.inter(
@@ -255,13 +245,10 @@ class _TimelineScreenState extends State<EmployeeDetails> {
             children: [
               Container(
                 decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [blue, purple, pink],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
+                  color: Color(0xFF4A90E2),
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(16),
                   ),
-                  borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(16)),
                 ),
                 child: Row(
                   children: [

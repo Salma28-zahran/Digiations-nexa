@@ -33,10 +33,8 @@ class CustomAppBarManager extends StatelessWidget
       /// 🟣 Logo (Center)
       centerTitle: true,
       title: Image.asset(
-        isDark
-            ? 'assets/images/logo3.png'
-            : 'assets/images/logo2.png',
-        height: isDark ? 120 : 120,
+        "assets/images/logo.png",
+        height: 60,
         fit: BoxFit.contain,
       ),
 

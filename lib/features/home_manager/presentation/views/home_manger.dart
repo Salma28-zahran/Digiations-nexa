@@ -39,13 +39,15 @@ class _HomeMangerState extends State<HomeManger> {
 
               /// Content
               Expanded(
-                child: IndexedStack(
-                  index: selectedIndex,
-                  children: const [
-                    WebBody(),
-                    MobileBody(),
-                    // SummaryBody(), // لو حابة ترجعيه
-                  ],
+                child: SingleChildScrollView(
+                  child: IndexedStack(
+                    index: selectedIndex,
+                    children: const [
+                      WebBody(),
+                      MobileBody(),
+                      // SummaryBody(), // لو حابة ترجعيه
+                    ],
+                  ),
                 ),
               ),
             ],

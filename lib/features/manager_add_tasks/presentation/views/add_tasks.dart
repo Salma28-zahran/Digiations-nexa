@@ -25,11 +25,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 
     final bgColor = isDark ? const Color(0xFF1E1E1E) : Colors.white;
     final fieldColor = isDark ? const Color(0xFF2A2A2A) : Colors.white;
-    final borderColor =
-    isDark ? Colors.white24 : Colors.grey.shade300;
+    final borderColor = isDark ? Colors.white24 : Colors.grey.shade300;
     final textColor = isDark ? Colors.white : Colors.black;
-    final hintColor =
-    isDark ? Colors.white54 : Colors.grey;
+    final hintColor = isDark ? Colors.white54 : Colors.grey;
 
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -63,7 +61,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               IconButton(
                 icon: const Icon(
                   Icons.close,
-                  color: Color(0xFF7A5CFF),
+                  color: Color(0xFF4A90E2),
                   size: 20,
                 ),
                 onPressed: () => Navigator.pop(context),
@@ -119,7 +117,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           /// Assignee
           Row(
             children: [
-              const Icon(Icons.person, color: Color(0xFF7A5CFF), size: 20),
+              const Icon(Icons.person, color: Color(0xFF4A90E2), size: 20),
               const SizedBox(width: 8),
 
               Column(
@@ -135,7 +133,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                   ),
                   Text(
                     selectedAssignee,
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       color: textColor,
                     ),
@@ -151,7 +149,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                     : const Color(0xFFE3EEFF),
                 icon: const Icon(
                   Icons.keyboard_arrow_down,
-                  color: Color(0xFF7A5CFF),
+                  color: Color(0xFF4A90E2),
                 ),
                 onSelected: (value) {
                   setState(() {
@@ -164,7 +162,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       value: name,
                       child: Text(
                         name,
-                        style: TextStyle(color: textColor),
+                        style: GoogleFonts.poppins(color: textColor),
                       ),
                     );
                   }).toList();
@@ -180,8 +178,11 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             onTap: _pickDateTime,
             child: Row(
               children: [
-                const Icon(Icons.date_range,
-                    color: Color(0xFF7A5CFF), size: 20),
+                const Icon(
+                  Icons.date_range,
+                  color: Color(0xFF4A90E2),
+                  size: 20,
+                ),
                 const SizedBox(width: 8),
 
                 Column(
@@ -189,7 +190,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                   children: [
                     Text(
                       'Deadline',
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         fontSize: 14,
                         color: hintColor,
                         fontWeight: FontWeight.w600,
@@ -199,7 +200,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       selectedDate == null
                           ? 'Pick date'
                           : formatDate(selectedDate!),
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         color: textColor,
                       ),
@@ -211,9 +212,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 
                 const Icon(
                   Icons.calendar_today,
-                  color: Color(0xFF7A5CFF),
+                  color: Color(0xFF4A90E2),
                   size: 20,
                 ),
+                SizedBox(width: 14,)
               ],
             ),
           ),
@@ -227,20 +229,13 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 child: Container(
                   height: screenHeight * 0.06,
                   decoration: BoxDecoration(
-                    borderRadius:
-                    BorderRadius.circular(screenHeight * 0.018),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF2FA4FF),
-                        Color(0xFF7A5CFF),
-                        Color(0xFFFF4FD8),
-                      ],
-                    ),
+                    borderRadius: BorderRadius.circular(screenHeight * 0.018),
+                    color: Color(0xFF4A90E2),
                   ),
                   child: Center(
                     child: Text(
                       "Send",
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w600,
@@ -254,7 +249,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 onPressed: () => Navigator.pop(context),
                 child: Text(
                   'Cancel',
-                  style: TextStyle(color: hintColor),
+                  style: GoogleFonts.poppins(color: hintColor),
                 ),
               ),
             ],

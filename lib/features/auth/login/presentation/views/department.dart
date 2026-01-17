@@ -50,7 +50,7 @@ class Department extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "web",
+                      "Web",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
@@ -81,7 +81,7 @@ class Department extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "mobile",
+                      "Mobile",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: screenHeight * 0.02,
