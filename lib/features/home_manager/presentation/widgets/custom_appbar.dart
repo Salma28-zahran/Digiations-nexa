@@ -22,7 +22,7 @@ class CustomAppBarManager extends StatelessWidget
       leading: IconButton(
         icon: Icon(
           isDark ? Icons.dark_mode : Icons.light_mode,
-          color: const Color(0xFF7A5CFF),
+            color: Color(0xFF4A90E2)
         ),
         onPressed: () {
           themeNotifier.value =
@@ -43,7 +43,7 @@ class CustomAppBarManager extends StatelessWidget
         IconButton(
           icon: const Icon(
             Icons.add,
-            color: Color(0xFF7A5CFF),
+              color: Color(0xFF4A90E2)
           ),
           onPressed: () {
             _showAddTaskBottomSheet(context, isDark);
