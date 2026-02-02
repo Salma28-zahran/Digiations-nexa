@@ -68,25 +68,18 @@ class _EmployeeTasksState extends State<EmployeeTasks>
               height: 44,
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: isDark ? const Color(0xFF1C1C1C) : const Color(0xFFE9ECF5),
-                borderRadius: BorderRadius.circular(18),
+                color: isDark ? const Color(0xFF1C1C1C) : Colors.white,
+                borderRadius: BorderRadius.circular(1),
               ),
               child: TabBar(
                 controller: _tabController,
                 indicatorAnimation: TabIndicatorAnimation.linear,
                 indicatorSize: TabBarIndicatorSize.tab,
                 dividerColor: Colors.transparent,
-                splashBorderRadius: BorderRadius.circular(14),
+                splashBorderRadius: BorderRadius.circular(1),
                 indicator: BoxDecoration(
                   color: const Color(0xFF4A90E2),
-                  borderRadius: BorderRadius.circular(14),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(.18),
-                      blurRadius: 8,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
+                  borderRadius: BorderRadius.circular(1),
                 ),
                 labelColor: Colors.white,
                 labelStyle: GoogleFonts.poppins(
@@ -103,6 +96,7 @@ class _EmployeeTasksState extends State<EmployeeTasks>
               ),
             ),
           ),
+
 
 
           const SizedBox(height: 16),
@@ -132,14 +126,8 @@ class _EmployeeTasksState extends State<EmployeeTasks>
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: cardColor,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(.05),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              )
-            ],
+            borderRadius: BorderRadius.circular(1),
+
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

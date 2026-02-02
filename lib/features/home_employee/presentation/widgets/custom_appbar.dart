@@ -38,9 +38,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
       actions: [
         PopupMenuButton<int>(
+          color: Colors.white,
           offset: const Offset(0, 50),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(1),
           ),
           icon: const Icon(
             Icons.mail,
@@ -103,7 +104,7 @@ class _NewBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
           color: Color(0xFF4A90E2),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(1),
         boxShadow: [
           BoxShadow(
             color: isDark

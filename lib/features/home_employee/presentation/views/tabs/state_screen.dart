@@ -17,7 +17,7 @@ class _StateScreenState extends State<StateScreen>
 
   static const Color primaryBlue = Color(0xFF4A90E2);
 
-  static const Color inactiveGrayLight = Color(0xFFE5E5E5);
+  static const Color inactiveGrayLight = Colors.white;
   static const Color inactiveTextLight = Color(0xFF9E9E9E);
 
   @override
@@ -27,13 +27,13 @@ class _StateScreenState extends State<StateScreen>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 260),
-      lowerBound: 0.85,
+      lowerBound: 0.9,
       upperBound: 1.0,
     );
 
     _scaleAnimation = CurvedAnimation(
       parent: _controller,
-      curve: Curves.elasticOut,
+      curve: Curves.easeOutBack,
     );
 
     _controller.forward();
@@ -49,7 +49,7 @@ class _StateScreenState extends State<StateScreen>
     setState(() {
       currentState = value;
     });
-    _controller.forward(from: 0.85);
+    _controller.forward(from: 0.9);
   }
 
   @override
@@ -60,22 +60,21 @@ class _StateScreenState extends State<StateScreen>
     isDark ? const Color(0xFF2A2A2A) : inactiveGrayLight;
 
     final Color inactiveText =
-    isDark ? Colors.white70 : inactiveTextLight;
-
-    final Color shadowColor =
-    isDark ? Colors.black.withOpacity(.6) : Colors.black.withOpacity(.15);
+    isDark ? Colors.white : inactiveTextLight;
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor:
+      isDark ? const Color(0xFF121212) : const Color(0xFFF7F7F7),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
 
+            /// Current State Card
             ScaleTransition(
               scale: _scaleAnimation,
-              child: _currentStateCard(shadowColor),
+              child: _currentStateCard(),
             ),
 
             const SizedBox(height: 30),
@@ -83,8 +82,8 @@ class _StateScreenState extends State<StateScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _button("Check In", isDark, inactiveBg, inactiveText),
-                _button("Break", isDark, inactiveBg, inactiveText),
+                _button("Check In", inactiveBg, inactiveText),
+                _button("Break", inactiveBg, inactiveText),
               ],
             ),
 
@@ -93,8 +92,8 @@ class _StateScreenState extends State<StateScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _button("Check Out", isDark, inactiveBg, inactiveText),
-                _button("Absent", isDark, inactiveBg, inactiveText),
+                _button("Check Out", inactiveBg, inactiveText),
+                _button("Absent", inactiveBg, inactiveText),
               ],
             ),
           ],
@@ -103,20 +102,16 @@ class _StateScreenState extends State<StateScreen>
     );
   }
 
-  Widget _currentStateCard(Color shadowColor) {
+  // -------------------------
+  // Current State Card
+  // -------------------------
+  Widget _currentStateCard() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
       decoration: BoxDecoration(
         color: primaryBlue,
-        borderRadius: BorderRadius.circular(28),
-        boxShadow: [
-          BoxShadow(
-            color: shadowColor,
-            blurRadius: 16,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        borderRadius: BorderRadius.circular(2),
       ),
       child: Column(
         children: [
@@ -124,7 +119,7 @@ class _StateScreenState extends State<StateScreen>
             "Current State",
             style: GoogleFonts.poppins(
               fontSize: 14,
-              color: Colors.white.withOpacity(.75),
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 6),
@@ -141,9 +136,11 @@ class _StateScreenState extends State<StateScreen>
     );
   }
 
+  // -------------------------
+  // Button
+  // -------------------------
   Widget _button(
       String label,
-      bool isDark,
       Color inactiveBg,
       Color inactiveText,
       ) {
@@ -152,28 +149,19 @@ class _StateScreenState extends State<StateScreen>
     return GestureDetector(
       onTap: () => _updateState(label),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 240),
+        duration: const Duration(milliseconds: 220),
         width: 140,
         height: 48,
         decoration: BoxDecoration(
           color: isSelected ? primaryBlue : inactiveBg,
-          borderRadius: BorderRadius.circular(22),
-          boxShadow: isSelected
-              ? [
-            BoxShadow(
-              color: Colors.black.withOpacity(isDark ? .6 : .25),
-              blurRadius: 14,
-              offset: const Offset(0, 6),
-            ),
-          ]
-              : [],
+          borderRadius: BorderRadius.circular(2),
         ),
         alignment: Alignment.center,
         child: Text(
           label,
           style: GoogleFonts.poppins(
             fontSize: 16,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             color: isSelected ? Colors.white : inactiveText,
           ),
         ),
