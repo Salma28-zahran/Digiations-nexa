@@ -16,10 +16,10 @@ class _HomeEmployeeState extends State<HomeEmployee> {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
     final Color tabBg =
-    isDark ? const Color(0xFF1F1F1F) : Colors.grey.shade200;
+    isDark ? const Color(0xFF1F1F1F) : Colors.white;
 
     final Color unselectedText =
-    isDark ? Colors.white70 : Colors.black54;
+    isDark ? Colors.white : Colors.black54;
 
     return DefaultTabController(
       length: 2,
@@ -37,11 +37,11 @@ class _HomeEmployeeState extends State<HomeEmployee> {
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
                   color: tabBg,
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(3),
                 ),
                 child: TabBar(
                   indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(3),
                       color: Color(0xFF4A90E2)
                   ),
                   indicatorSize: TabBarIndicatorSize.tab,

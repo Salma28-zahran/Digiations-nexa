@@ -21,8 +21,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
   static const int startHour = 9;
   static const int hoursPerDay = 8;
 
-
-
   static const Color backgroundLight = Color(0xFFF4F6FF);
   static const Color rowLight = Color(0xFFFFFFFF);
   static const Color rowDark = Color(0xFFF0F2FF);
@@ -53,7 +51,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   void _onScroll() {
     if (_verticalController.position.pixels >=
-        _verticalController.position.maxScrollExtent &&
+            _verticalController.position.maxScrollExtent &&
         !_loading) {
       _loading = true;
       _loadNextDay();
@@ -97,15 +95,15 @@ class _TimelineScreenState extends State<TimelineScreen> {
   }
 
   Widget _row(
-      TimelineEntry e,
-      int index,
-      bool isDark,
-      Color rowBg1,
-      Color rowBg2,
-      Color borderColor,
-      Color textColor,
-      Color hintColor,
-      ) {
+    TimelineEntry e,
+    int index,
+    bool isDark,
+    Color rowBg1,
+    Color rowBg2,
+    Color borderColor,
+    Color textColor,
+    Color hintColor,
+  ) {
     return Container(
       color: index.isEven ? rowBg1 : rowBg2,
       child: Row(
@@ -127,8 +125,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
             child: Text(
               DateFormat('HH:mm').format(e.dateTime),
               style: GoogleFonts.poppins(
-
-              fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w600,
                 color: textColor,
               ),
             ),
@@ -139,8 +136,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
             child: TextField(
               controller: e.task,
 
-              style: GoogleFonts.poppins(
-                  color: textColor),
+              style: GoogleFonts.poppins(color: textColor),
               decoration: InputDecoration(
                 hintText: 'Task',
                 hintStyle: TextStyle(color: hintColor),
@@ -154,13 +150,10 @@ class _TimelineScreenState extends State<TimelineScreen> {
             borderColor: borderColor,
             child: TextField(
               controller: e.message,
-              style: GoogleFonts.poppins(
-
-              color: textColor),
+              style: GoogleFonts.poppins(color: textColor),
               decoration: InputDecoration(
                 hintText: 'Message',
-                hintStyle: GoogleFonts.poppins(
-                  color: hintColor),
+                hintStyle: GoogleFonts.poppins(color: hintColor),
                 border: InputBorder.none,
                 isDense: true,
               ),
@@ -174,8 +167,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
               style: TextStyle(color: textColor),
               decoration: InputDecoration(
                 hintText: 'Project',
-                hintStyle: GoogleFonts.poppins(
-                  color: hintColor),
+                hintStyle: GoogleFonts.poppins(color: hintColor),
                 border: InputBorder.none,
                 isDense: true,
               ),
@@ -194,8 +186,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
       child: Text(
         title,
         style: GoogleFonts.poppins(
-
-        color: Colors.white,
+          color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -213,23 +204,17 @@ class _TimelineScreenState extends State<TimelineScreen> {
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
-    final Color background =
-    isDark ? const Color(0xFF121212) : backgroundLight;
+    final Color background = isDark ? const Color(0xFF121212) : backgroundLight;
 
-    final Color rowBg1 =
-    isDark ? const Color(0xFF1C1C1C) : rowLight;
+    final Color rowBg1 = isDark ? const Color(0xFF1C1C1C) : rowLight;
 
-    final Color rowBg2 =
-    isDark ? const Color(0xFF232323) : rowDark;
+    final Color rowBg2 = isDark ? const Color(0xFF232323) : rowDark;
 
-    final Color borderColor =
-    isDark ? const Color(0xFF2E2E2E) : borderLight;
+    final Color borderColor = isDark ? const Color(0xFF2E2E2E) : borderLight;
 
-    final Color textColor =
-    isDark ? Colors.white : Colors.black87;
+    final Color textColor = isDark ? Colors.white : Colors.black87;
 
-    final Color hintColor =
-    isDark ? Colors.white60 : Colors.black45;
+    final Color hintColor = isDark ? Colors.white60 : Colors.black45;
 
     return Scaffold(
       backgroundColor: background,
@@ -241,10 +226,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
           child: Column(
             children: [
               Container(
-                decoration:  BoxDecoration(
-          color: Color(0xFF4A90E2),
-                  borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(16)),
+                decoration: BoxDecoration(
+                  color: Color(0xFF4A90E2),
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(1),
+                  ),
                 ),
                 child: Row(
                   children: [
