@@ -1,15 +1,15 @@
-import 'package:digiations_nexa/features/home_employee/presentation/widgets/custom_appbar.dart';
+import 'package:digiations_nexa/features/main_employee/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class EmployeeTasks extends StatefulWidget {
-  const EmployeeTasks({super.key});
+class TasksScreen extends StatefulWidget {
+  const TasksScreen({super.key});
 
   @override
-  State<EmployeeTasks> createState() => _EmployeeTasksState();
+  State<TasksScreen> createState() => _TasksScreenState();
 }
 
-class _EmployeeTasksState extends State<EmployeeTasks>
+class _TasksScreenState extends State<TasksScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -34,29 +34,8 @@ class _EmployeeTasksState extends State<EmployeeTasks>
     final textColor = isDark ? Colors.white : Colors.black;
 
     return Scaffold(
-      backgroundColor: bgColor,
-      appBar: AppBar(
-      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
 
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back_ios_new,
-            color: Color(0xFF4A90E2)
-        ),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
-
-      title: Image.asset(
-        "assets/images/logo.png",
-        height: 60,
-        fit: BoxFit.contain,
-      ),
-      ),
 
       body: Column(
         children: [
@@ -65,21 +44,26 @@ class _EmployeeTasksState extends State<EmployeeTasks>
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
-              height: 44,
-              padding: const EdgeInsets.all(4),
+              height: 50,
+             // padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: isDark ? const Color(0xFF1C1C1C) : Colors.white,
-                borderRadius: BorderRadius.circular(1),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: Colors.grey.shade300,
+                  width: 1.5,
+                ),
               ),
               child: TabBar(
                 controller: _tabController,
                 indicatorAnimation: TabIndicatorAnimation.linear,
                 indicatorSize: TabBarIndicatorSize.tab,
                 dividerColor: Colors.transparent,
-                splashBorderRadius: BorderRadius.circular(1),
+                splashBorderRadius: BorderRadius.circular(20),
                 indicator: BoxDecoration(
                   color: const Color(0xFF4A90E2),
-                  borderRadius: BorderRadius.circular(1),
+                  borderRadius: BorderRadius.circular(20),
+
                 ),
                 labelColor: Colors.white,
                 labelStyle: GoogleFonts.poppins(

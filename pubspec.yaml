@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   google_fonts: ^7.0.0
-  image_picker: ^1.0.7
+  image_picker: ^1.2.1
   shared_preferences: ^2.5.4
   pluto_grid: ^8.1.0
   syncfusion_flutter_datagrid: ^32.1.23

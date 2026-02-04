@@ -6,9 +6,8 @@ import 'package:digiations_nexa/features/auth/login/presentation/views/position.
 import 'package:digiations_nexa/features/auth/login/presentation/views/login_screen.dart';
 
 import 'package:digiations_nexa/features/auth/register/presentation/views/register_screen.dart';
-import 'package:digiations_nexa/features/employee_tasks/presentation/views/employee_tasks.dart';
-import 'package:digiations_nexa/features/home_employee/presentation/views/home_employee.dart';
 import 'package:digiations_nexa/features/home_manager/presentation/views/home_manger.dart';
+import 'package:digiations_nexa/features/main_employee/presentation/views/main_employee.dart';
 import 'package:flutter/material.dart';
 
 class RoutesGenerator {
@@ -42,10 +41,10 @@ class RoutesGenerator {
           ),
           settings: settings,
         );
-      case PageRouteName.homeEmployee:
+      case PageRouteName.mainEmployee:
         return MaterialPageRoute(
           builder: (context) => BackgroundScreen(
-            child: HomeEmployee(),
+            child: MainEmployee(),
           ),
           settings: settings,
         );
@@ -56,13 +55,7 @@ class RoutesGenerator {
           ),
           settings: settings,
         );
-      case PageRouteName.EmployeeTasks:
-        return MaterialPageRoute(
-          builder: (context) => const BackgroundScreen(
-            child: EmployeeTasks(),
-          ),
-          settings: settings,
-        );
+
 
 
 
