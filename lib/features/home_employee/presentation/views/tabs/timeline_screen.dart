@@ -227,7 +227,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Color(0xFF4A90E2),
+                  color: Color(0xFF0080FF),
                   borderRadius: BorderRadius.vertical(
                     bottom: Radius.circular(1),
                   ),

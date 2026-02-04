@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: Icon(
           isDark ? Icons.dark_mode : Icons.light_mode,
-            color: Color(0xFF4A90E2)
+            color: Color(0xFF0080FF)
         ),
         onPressed: () {
           themeNotifier.value =
@@ -45,13 +45,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           icon: const Icon(
             Icons.mail,
-              color: Color(0xFF4A90E2)
+              color: Color(0xFF0080FF)
           ),
           onSelected: (value) {
             if (value == 0) {
               Navigator.pushNamed(
                 context,
-                PageRouteName.EmployeeTasks,
+                PageRouteName.employeeTasks,
               );
             }
           },
@@ -63,7 +63,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Text(
                   'See all',
                   style: GoogleFonts.poppins(
-                    color: Color(0xFF4A90E2),
+                    color: Color(0xFF0080FF),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -103,7 +103,7 @@ class _NewBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-          color: Color(0xFF4A90E2),
+          color: Color(0xFF0080FF),
         borderRadius: BorderRadius.circular(1),
         boxShadow: [
           BoxShadow(

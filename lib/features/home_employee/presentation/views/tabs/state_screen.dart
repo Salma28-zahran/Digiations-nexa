@@ -15,7 +15,7 @@ class _StateScreenState extends State<StateScreen>
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
-  static const Color primaryBlue = Color(0xFF4A90E2);
+  static const Color primaryBlue = Color(0xFF0080FF);
 
   static const Color inactiveGrayLight = Colors.white;
   static const Color inactiveTextLight = Color(0xFF9E9E9E);

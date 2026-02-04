@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: IconButton(
               icon: Icon(
                 isDark ? Icons.dark_mode : Icons.light_mode,
-                  color: Color(0xFF4A90E2)
+                  color: Color(0xFF0080FF)
               ),
               onPressed: () {
                 themeNotifier.value =
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         prefixIcon: const Icon(
                           Icons.email_outlined,
-                            color: Color(0xFF4A90E2)
+                            color: Color(0xFF0080FF)
                         ),
                         enabledBorder:
                         _border(screenHeight * 0.04, fieldBorder),
@@ -128,14 +128,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         prefixIcon: const Icon(
                           Icons.lock_outline,
-                            color: Color(0xFF4A90E2)
+                            color: Color(0xFF0080FF)
                         ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
                                 ? Icons.visibility_off_outlined
                                 : Icons.visibility_outlined,
-                              color: Color(0xFF4A90E2)
+                              color: Color(0xFF0080FF)
                           ),
                           onPressed: () {
                             setState(() {
@@ -164,11 +164,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, PageRouteName.verifyEmail);
+                        },
                         child: Text(
                           "Forgot Password?",
                           style: GoogleFonts.poppins(
-                            color: Color(0xFF4A90E2),
+                            color: Color(0xFF0080FF),
                             fontSize: screenHeight * 0.016,
                             fontWeight: FontWeight.w500,
                           ),
@@ -201,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               screenHeight * 0.018),
-                          color: Color(0xFF4A90E2)
+                          color: Color(0xFF0080FF)
 
                         ),
                         child: Center(
@@ -240,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           "Register",
                           style: GoogleFonts.poppins(
-                            color: Color(0xFF4A90E2),
+                            color: Color(0xFF0080FF),
                             fontSize: screenHeight * 0.016,
                             fontWeight: FontWeight.w600,
                           ),

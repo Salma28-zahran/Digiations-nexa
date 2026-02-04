@@ -43,7 +43,7 @@ class Position extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                     color: Color(0xFF4A90E2)
+                     color: Color(0xFF0080FF)
                   ),
                   child: Center(
                     child: Text(
@@ -72,7 +72,7 @@ class Position extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: Color(0xFF4A90E2),
+                    color: Color(0xFF0080FF),
                   ),
                   child: Center(
                     child: Text(

@@ -44,7 +44,7 @@ class _EmployeeTasksState extends State<EmployeeTasks>
       leading: IconButton(
         icon: const Icon(
           Icons.arrow_back_ios_new,
-            color: Color(0xFF4A90E2)
+            color: Color(0xFF0080FF)
         ),
         onPressed: () {
           Navigator.pop(context);
@@ -78,7 +78,7 @@ class _EmployeeTasksState extends State<EmployeeTasks>
                 dividerColor: Colors.transparent,
                 splashBorderRadius: BorderRadius.circular(1),
                 indicator: BoxDecoration(
-                  color: const Color(0xFF4A90E2),
+                  color: const Color(0xFF0080FF),
                   borderRadius: BorderRadius.circular(1),
                 ),
                 labelColor: Colors.white,

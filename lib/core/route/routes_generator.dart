@@ -1,6 +1,9 @@
 
 import 'package:digiations_nexa/core/route/routes.dart';
 import 'package:digiations_nexa/core/widgets/background.dart';
+import 'package:digiations_nexa/features/auth/forget_password/presentation/views/reset_password.dart';
+import 'package:digiations_nexa/features/auth/forget_password/presentation/views/verify_code.dart';
+import 'package:digiations_nexa/features/auth/forget_password/presentation/views/verify_email.dart';
 import 'package:digiations_nexa/features/auth/login/presentation/views/department.dart';
 import 'package:digiations_nexa/features/auth/login/presentation/views/position.dart';
 import 'package:digiations_nexa/features/auth/login/presentation/views/login_screen.dart';
@@ -56,16 +59,34 @@ class RoutesGenerator {
           ),
           settings: settings,
         );
-      case PageRouteName.EmployeeTasks:
+      case PageRouteName.employeeTasks:
         return MaterialPageRoute(
           builder: (context) => const BackgroundScreen(
             child: EmployeeTasks(),
           ),
           settings: settings,
         );
-
-
-
+      case PageRouteName.verifyEmail:
+        return MaterialPageRoute(
+          builder: (context) => const BackgroundScreen(
+            child: VerifyEmailScreen(),
+          ),
+          settings: settings,
+        );
+      case PageRouteName.verifyCode:
+        return MaterialPageRoute(
+          builder: (context) => const BackgroundScreen(
+            child: VerifyCodeScreen(),
+          ),
+          settings: settings,
+        );
+      case PageRouteName.resetPassword:
+        return MaterialPageRoute(
+          builder: (context) => const BackgroundScreen(
+            child: ResetPasswordScreen(),
+          ),
+          settings: settings,
+        );
 
       default:
         return MaterialPageRoute(

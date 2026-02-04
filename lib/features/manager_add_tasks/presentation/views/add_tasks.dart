@@ -61,7 +61,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               IconButton(
                 icon: const Icon(
                   Icons.close,
-                  color: Color(0xFF4A90E2),
+                  color: Color(0xFF0080FF),
                   size: 20,
                 ),
                 onPressed: () => Navigator.pop(context),
@@ -117,7 +117,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           /// Assignee
           Row(
             children: [
-              const Icon(Icons.person, color: Color(0xFF4A90E2), size: 20),
+              const Icon(Icons.person, color: Color(0xFF0080FF), size: 20),
               const SizedBox(width: 8),
 
               Column(
@@ -149,7 +149,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                     : const Color(0xFFE3EEFF),
                 icon: const Icon(
                   Icons.keyboard_arrow_down,
-                  color: Color(0xFF4A90E2),
+                  color: Color(0xFF0080FF),
                 ),
                 onSelected: (value) {
                   setState(() {
@@ -180,7 +180,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               children: [
                 const Icon(
                   Icons.date_range,
-                  color: Color(0xFF4A90E2),
+                  color:Color(0xFF0080FF),
                   size: 20,
                 ),
                 const SizedBox(width: 8),
@@ -212,7 +212,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 
                 const Icon(
                   Icons.calendar_today,
-                  color: Color(0xFF4A90E2),
+                  color: Color(0xFF0080FF),
                   size: 20,
                 ),
                 SizedBox(width: 14,)
@@ -230,7 +230,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                   height: screenHeight * 0.06,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(screenHeight * 0.018),
-                    color: Color(0xFF4A90E2),
+                    color: Color(0xFF0080FF),
                   ),
                   child: Center(
                     child: Text(

@@ -19,14 +19,13 @@ class _EmployeeCard1State extends State<EmployeeCard1> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (_) => const EmployeeDetails()),
+          MaterialPageRoute(builder: (_) =>  EmployeeDetails()),
         );
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
-          borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color:  Colors.grey,
             width: 2,
@@ -150,7 +149,7 @@ class _EmployeeCard1State extends State<EmployeeCard1> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
-                                      color:  Color(0xFF4A90E2),
+                                      color:  Color(0xFF0080FF),
                                     ),
                                   ),
                                    SizedBox(width: 4),
@@ -160,7 +159,7 @@ class _EmployeeCard1State extends State<EmployeeCard1> {
                                     child:  Icon(
                                       Icons.keyboard_arrow_down,
                                       size: 22,
-                                      color: Color(0xFF4A90E2),
+                                      color: Color(0xFF0080FF),
                                     ),
                                   ),
                                 ],
@@ -244,7 +243,6 @@ class _EmployeeCard2State extends State<EmployeeCard2> {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
-          borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color:  Colors.grey,
             width: 2,
@@ -462,7 +460,6 @@ class _EmployeeCard3State extends State<EmployeeCard3> {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
-          borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color:  Colors.grey,
             width: 2,
@@ -680,7 +677,6 @@ class _EmployeeCard4State extends State<EmployeeCard4> {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
-          borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color:  Colors.grey,
             width: 2,
@@ -804,7 +800,7 @@ class _EmployeeCard4State extends State<EmployeeCard4> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
-                                      color:  Color(0xFF4A90E2),
+                                      color:  Color(0xFF0080FF),
                                     ),
                                   ),
                                   SizedBox(width: 4),
@@ -814,7 +810,7 @@ class _EmployeeCard4State extends State<EmployeeCard4> {
                                     child:  Icon(
                                       Icons.keyboard_arrow_down,
                                       size: 22,
-                                      color: Color(0xFF4A90E2),
+                                      color: Color(0xFF0080FF),
                                     ),
                                   ),
                                 ],
