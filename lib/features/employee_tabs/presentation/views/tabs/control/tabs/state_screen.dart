@@ -16,7 +16,9 @@ class _StateScreenState extends State<StateScreen>
   late Animation<double> _scaleAnimation;
 
   static const Color primaryBlue = Color(0xFF4A90E2);
-
+  static const Color purple = Color(0xFF8E44AD);
+  static const Color red = Color(0xFFE74C3C);
+  static const Color darkGray = Color(0xFF4A4A4A);
   static const Color inactiveGrayLight = Colors.white;
   static const Color inactiveTextLight = Color(0xFF9E9E9E);
 
@@ -55,23 +57,17 @@ class _StateScreenState extends State<StateScreen>
   @override
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
-
-    final Color inactiveBg =
-    isDark ? const Color(0xFF2A2A2A) : inactiveGrayLight;
-
-    final Color inactiveText =
-    isDark ? Colors.white : inactiveTextLight;
+    final Color inactiveBg = isDark ? const Color(0xFF2A2A2A) : inactiveGrayLight;
+    final Color inactiveText = isDark ? Colors.white : inactiveTextLight;
 
     return Scaffold(
-      backgroundColor:
-      isDark ? const Color(0xFF121212) : const Color(0xFFF7F7F7),
+      backgroundColor: Colors.transparent,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             const SizedBox(height: 20),
 
-            /// Current State Card
             ScaleTransition(
               scale: _scaleAnimation,
               child: _currentStateCard(),
@@ -80,9 +76,10 @@ class _StateScreenState extends State<StateScreen>
             const SizedBox(height: 30),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _button("Check In", inactiveBg, inactiveText),
+                const SizedBox(width: 15),
                 _button("Break", inactiveBg, inactiveText),
               ],
             ),
@@ -90,28 +87,28 @@ class _StateScreenState extends State<StateScreen>
             const SizedBox(height: 12),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _button("Check Out", inactiveBg, inactiveText),
+                const SizedBox(width: 15),
                 _button("Absent", inactiveBg, inactiveText),
               ],
             ),
+
           ],
         ),
       ),
     );
   }
 
-  // -------------------------
-  // Current State Card
-  // -------------------------
+
   Widget _currentStateCard() {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
       decoration: BoxDecoration(
         color: primaryBlue,
-        borderRadius: BorderRadius.circular(2),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         children: [
@@ -136,15 +133,27 @@ class _StateScreenState extends State<StateScreen>
     );
   }
 
-  // -------------------------
-  // Button
-  // -------------------------
-  Widget _button(
-      String label,
-      Color inactiveBg,
-      Color inactiveText,
-      ) {
+
+  Widget _button(String label, Color inactiveBg, Color inactiveText) {
     final bool isSelected = currentState == label;
+
+    Color mainColor;
+    switch (label) {
+      case "Check In":
+        mainColor = primaryBlue;
+        break;
+      case "Break":
+        mainColor = purple;
+        break;
+      case "Check Out":
+        mainColor = darkGray;
+        break;
+      case "Absent":
+        mainColor = red;
+        break;
+      default:
+        mainColor = primaryBlue;
+    }
 
     return GestureDetector(
       onTap: () => _updateState(label),
@@ -152,20 +161,25 @@ class _StateScreenState extends State<StateScreen>
         duration: const Duration(milliseconds: 220),
         width: 140,
         height: 48,
-        decoration: BoxDecoration(
-          color: isSelected ? primaryBlue : inactiveBg,
-          borderRadius: BorderRadius.circular(2),
-        ),
         alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: isSelected ? mainColor.withOpacity(0.15) : inactiveBg,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: isSelected ? mainColor : Colors.grey.shade300,
+            width: 2,
+          ),
+        ),
         child: Text(
           label,
           style: GoogleFonts.poppins(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            color: isSelected ? Colors.white : inactiveText,
+            color: isSelected ? mainColor : inactiveText,
           ),
         ),
       ),
     );
   }
+
 }

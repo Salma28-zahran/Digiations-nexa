@@ -1,4 +1,4 @@
-import 'package:digiations_nexa/features/home_employee/presentation/widgets/model.dart'
+import 'package:digiations_nexa/features/employee_tabs/presentation/views/tabs/control/widgets/model.dart'
     show TimelineEntry;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

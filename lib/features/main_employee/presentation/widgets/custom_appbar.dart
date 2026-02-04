@@ -35,7 +35,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         height: 60,
         fit: BoxFit.contain,
       ),
-
+/*
       actions: [
         PopupMenuButton<int>(
           color: Colors.white,
@@ -88,7 +88,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
         ),
+
+
       ],
+      */
+
     );
   }
 }

@@ -192,7 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               context, PageRouteName.homeManager);
                         } else if (role == UserRole.employee) {
                           Navigator.pushReplacementNamed(
-                              context, PageRouteName.homeEmployee);
+                              context, PageRouteName.mainEmployee);
                         }
                       },
                       child: Container(

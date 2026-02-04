@@ -11,7 +11,7 @@ class BackgroundScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: isDark
           ? Colors.black
-          : const Color(0xFFF5F5F5),
+          : Colors.white,
       body: child,
     );
   }
