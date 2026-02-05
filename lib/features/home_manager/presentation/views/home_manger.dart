@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../widgets/custom_appbar.dart';
-import '../widgets/custom_bottom_navBar_manager.dart';
-import 'home_tabs/control_tab.dart';
-import 'home_tabs/employee_tab.dart';
-import 'home_tabs/profile_tab.dart';
+import 'package:digiations_nexa/features/home_manager/presentation/views/tabs/web_body.dart';
+import 'package:digiations_nexa/features/home_manager/presentation/views/tabs/mobile_body.dart';
+import '../widgets/custom_appbar_manager.dart';
+import '../widgets/custom_tabs.dart';
 
 class HomeManger extends StatefulWidget {
   const HomeManger({super.key});
@@ -15,28 +14,45 @@ class HomeManger extends StatefulWidget {
 class _HomeMangerState extends State<HomeManger> {
   int selectedIndex = 0;
 
-  /// ✅ 3 Screens for Bottom Nav
-  final List<Widget> pages = const [
-    ControlTab(),
-    EmployeeTab(),
-    ProfileTab(),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: const CustomAppBarManager(),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              /// Tabs
+              CustomTabs(
+                selectedIndex: selectedIndex,
+                onTabChanged: (index) {
+                  if (index == selectedIndex) return;
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                },
+              ),
 
-      appBar:  CustomAppBarManager(),
+              const SizedBox(height: 16),
 
-      body: pages[selectedIndex],
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: selectedIndex,
-        onTap: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
+              /// Content
+              Expanded(
+                child: SingleChildScrollView(
+                  child: IndexedStack(
+                    index: selectedIndex,
+                    children: const [
+                      WebBody(),
+                      MobileBody(),
+                      // SummaryBody(), // لو حابة ترجعيه
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

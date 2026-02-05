@@ -223,7 +223,7 @@ class _TimelineScreenState extends State<EmployeeDetails> {
           ? const Color(0xFF121212)
           : const Color(0xFFF4F6FF),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Color(0xFF0080FF)),
+        iconTheme: const IconThemeData(color: Color(0xFF4A90E2)),
         title: Text(
           'User Name',
           style: GoogleFonts.inter(
@@ -245,7 +245,10 @@ class _TimelineScreenState extends State<EmployeeDetails> {
             children: [
               Container(
                 decoration: const BoxDecoration(
-                  color:Color(0xFF0080FF),
+                  color: Color(0xFF4A90E2),
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(16),
+                  ),
                 ),
                 child: Row(
                   children: [

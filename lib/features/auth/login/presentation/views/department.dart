@@ -46,7 +46,7 @@ class Department extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                      color: Color(0xFF0080FF)
+                      color: Color(0xFF4A90E2)
                   ),
                   child: Center(
                     child: Text(
@@ -77,7 +77,7 @@ class Department extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                      color: Color(0xFF0080FF)
+                      color: Color(0xFF4A90E2)
                   ),
                   child: Center(
                     child: Text(

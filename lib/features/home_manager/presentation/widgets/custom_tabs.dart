@@ -17,17 +17,13 @@ class CustomTabs extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
-      height: 50,
+      height: 48,
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: isDark
-            ? Colors.transparent
-            : Colors.transparent,
+            ? const Color(0xFF1E1E1E)
+            : const Color(0xFFF3EFEA),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(
-          color: Colors.grey,
-          width: 2
-        )
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -44,7 +40,7 @@ class CustomTabs extends StatelessWidget {
                   width: tabWidth,
                   height: 40,
                   decoration: BoxDecoration(
-                  color: Color(0xFF0080FF),
+                  color: Color(0xFF4A90E2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),

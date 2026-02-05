@@ -43,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     final textColor = isDark ? Colors.white : Colors.black87;
     final hintColor = isDark ? Colors.grey.shade400 : Colors.grey;
-    final iconColor = Color(0xFF0080FF);
+    final iconColor = Color(0xFF4A90E2);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -67,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     border: Border.all(
                       color: isDark
                           ? Colors.grey.shade700
-                          :  Color(0xFF0080FF),
+                          :  Color(0xFF4A90E2),
                       width: 3,
                     ),
                     gradient: LinearGradient(
@@ -165,7 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: screenHeight * 0.07,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                        color: Color(0xFF0080FF)
+                        color: Color(0xFF4A90E2)
                     ),
                     child: Center(
                       child: Text(
@@ -240,7 +240,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           hintStyle:  GoogleFonts.poppins(
             color: isDark ? Colors.grey.shade400 : Colors.grey,
           ),
-          prefixIcon: Icon(icon, color: Color(0xFF0080FF)),
+          prefixIcon: Icon(icon, color: Color(0xFF4A90E2)),
           suffixIcon: suffix,
           filled: true,
           fillColor:
