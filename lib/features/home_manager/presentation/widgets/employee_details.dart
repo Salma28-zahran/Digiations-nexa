@@ -246,9 +246,7 @@ class _TimelineScreenState extends State<EmployeeDetails> {
               Container(
                 decoration: const BoxDecoration(
                   color: Color(0xFF4A90E2),
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(16),
-                  ),
+
                 ),
                 child: Row(
                   children: [

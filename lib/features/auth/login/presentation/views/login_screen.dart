@@ -164,7 +164,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, PageRouteName.verifyEmail);
+                        },
                         child: Text(
                           "Forgot Password?",
                           style: GoogleFonts.poppins(

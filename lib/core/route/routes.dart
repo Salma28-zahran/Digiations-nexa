@@ -7,6 +7,9 @@ class PageRouteName{
   static const homeManager = '/home_manager';
   static const mainEmployee= '/main_employee';
   //static const EmployeeTasks = '/employeetasks';
+  static const verifyEmail = '/verifyEmail';
+  static const verifyCode = '/verifyCode';
+  static const resetPassword = '/resetPassword';
 
 
 
