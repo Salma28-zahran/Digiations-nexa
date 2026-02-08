@@ -10,6 +10,10 @@ import 'package:digiations_nexa/features/home_manager/presentation/views/home_ma
 import 'package:digiations_nexa/features/main_employee/presentation/views/main_employee.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/auth/forget_password/presentation/views/reset_password.dart';
+import '../../features/auth/forget_password/presentation/views/verify_code.dart';
+import '../../features/auth/forget_password/presentation/views/verify_email.dart';
+
 class RoutesGenerator {
   static Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
@@ -52,6 +56,27 @@ class RoutesGenerator {
         return MaterialPageRoute(
           builder: (context) => const BackgroundScreen(
             child: HomeManger(),
+          ),
+          settings: settings,
+        );
+      case PageRouteName.verifyEmail:
+        return MaterialPageRoute(
+          builder: (context) => const BackgroundScreen(
+            child: VerifyEmailScreen(),
+          ),
+          settings: settings,
+        );
+      case PageRouteName.verifyCode:
+        return MaterialPageRoute(
+          builder: (context) => const BackgroundScreen(
+            child: VerifyCodeScreen(),
+          ),
+          settings: settings,
+        );
+      case PageRouteName.resetPassword:
+        return MaterialPageRoute(
+          builder: (context) => const BackgroundScreen(
+            child: ResetPasswordScreen(),
           ),
           settings: settings,
         );
