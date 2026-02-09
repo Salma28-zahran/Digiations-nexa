@@ -136,7 +136,7 @@ class _ProfileTabState extends State<ProfileTab> {
                   color: Colors.grey,
                 ),
               ),
-              const SizedBox(height: 280),
+              const SizedBox(height: 220),
 
               SizedBox(
                 width: 180,
