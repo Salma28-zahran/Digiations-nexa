@@ -27,8 +27,8 @@ class _EmployeeCard1State extends State<EmployeeCard1> {
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           border: Border.all(
-            color:  Colors.grey,
-            width: 2,
+            color: Colors.grey.shade300,
+            width: 1.5,
           ),
         ),
         child: AnimatedSize(
@@ -244,8 +244,8 @@ class _EmployeeCard2State extends State<EmployeeCard2> {
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           border: Border.all(
-            color:  Colors.grey,
-            width: 2,
+            color: Colors.grey.shade300,
+            width: 1.5,
           ),
         ),
         child: AnimatedSize(
@@ -461,8 +461,8 @@ class _EmployeeCard3State extends State<EmployeeCard3> {
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           border: Border.all(
-            color:  Colors.grey,
-            width: 2,
+            color: Colors.grey.shade300,
+            width: 1.5,
           ),
         ),
         child: AnimatedSize(
@@ -678,8 +678,8 @@ class _EmployeeCard4State extends State<EmployeeCard4> {
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1F1F1F) : Colors.white,
           border: Border.all(
-            color:  Colors.grey,
-            width: 2,
+            color: Colors.grey.shade300,
+            width: 1.5,
           ),
         ),
         child: AnimatedSize(

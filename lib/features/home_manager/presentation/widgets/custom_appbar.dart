@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:digiations_nexa/main.dart';
-import '../../../manager_add_tasks/presentation/views/add_tasks.dart';
 
 class CustomAppBarManager extends StatelessWidget
     implements PreferredSizeWidget {
@@ -18,7 +17,6 @@ class CustomAppBarManager extends StatelessWidget
       elevation: 0,
       automaticallyImplyLeading: false,
 
-      /// 🌙 Theme Toggle (Left)
       leading: IconButton(
         icon: Icon(
           isDark ? Icons.dark_mode : Icons.light_mode,
@@ -30,7 +28,6 @@ class CustomAppBarManager extends StatelessWidget
         },
       ),
 
-      /// 🟣 Logo (Center)
       centerTitle: true,
       title: Image.asset(
         "assets/images/logo.png",
@@ -38,33 +35,8 @@ class CustomAppBarManager extends StatelessWidget
         fit: BoxFit.contain,
       ),
 
-      /// ➕ Add Task (Right)
-      actions: [
-        IconButton(
-          icon: const Icon(
-            Icons.add,
-              color: Color(0xFF4A90E2)
-          ),
-          onPressed: () {
-            _showAddTaskBottomSheet(context, isDark);
-          },
-        ),
-      ],
+
     );
   }
 
-  void _showAddTaskBottomSheet(BuildContext context, bool isDark) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor:
-      isDark ? const Color(0xFF1E1E1E) : const Color(0xFFF4F6FF),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (_) {
-        return const AddTaskBottomSheet();
-      },
-    );
-  }
 }
