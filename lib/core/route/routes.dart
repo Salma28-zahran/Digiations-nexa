@@ -10,6 +10,8 @@ class PageRouteName{
   static const verifyEmail = '/verifyEmail';
   static const verifyCode = '/verifyCode';
   static const resetPassword = '/resetPassword';
+  static const projects = '/projects';
+  static const tasks = '/tasks';
 
 
 

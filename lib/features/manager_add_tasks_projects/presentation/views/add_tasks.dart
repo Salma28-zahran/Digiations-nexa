@@ -69,13 +69,13 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             ],
           ),
 
-          const SizedBox(height: 12),
+           SizedBox(height: 12),
 
           /// Task name
           TextField(
             style: TextStyle(color: textColor),
             decoration: InputDecoration(
-              hintText: 'Task name',
+              hintText: 'Add New Task',
               hintStyle: TextStyle(color: hintColor),
               filled: true,
               fillColor: fieldColor,
@@ -90,7 +90,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             ),
           ),
 
-          const SizedBox(height: 12),
+           SizedBox(height: 12),
 
           /// Description
           TextField(
@@ -112,13 +112,13 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             ),
           ),
 
-          const SizedBox(height: 16),
+           SizedBox(height: 16),
 
           /// Assignee
           Row(
             children: [
-              const Icon(Icons.person, color: Color(0xFF4A90E2), size: 20),
-              const SizedBox(width: 8),
+               Icon(Icons.person, color: Color(0xFF4A90E2), size: 20),
+               SizedBox(width: 8),
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,13 +141,13 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 ],
               ),
 
-              const Spacer(),
+               Spacer(),
 
               PopupMenuButton<String>(
                 color: isDark
-                    ? const Color(0xFF2A2A2A)
-                    : const Color(0xFFE3EEFF),
-                icon: const Icon(
+                    ?  Color(0xFF2A2A2A)
+                    :  Color(0xFFE3EEFF),
+                icon:  Icon(
                   Icons.keyboard_arrow_down,
                   color: Color(0xFF4A90E2),
                 ),

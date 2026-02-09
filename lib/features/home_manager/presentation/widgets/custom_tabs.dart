@@ -1,79 +1,47 @@
 import 'package:flutter/material.dart';
 
 class CustomTabs extends StatelessWidget {
-  final int selectedIndex;
-  final Function(int) onTabChanged;
+  final List<String> tabs;
+  final TabController controller;
 
-   CustomTabs({
+  const CustomTabs({
     super.key,
-    required this.selectedIndex,
-    required this.onTabChanged,
+    required this.tabs,
+    required this.controller,
   });
-
-  final List<String> tabs = ['Web', 'Mobile'];
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final Color tabBg =
+    isDark ? const Color(0xFF1F1F1F) : Colors.white;
+
+    final Color unselectedText =
+    isDark ? Colors.white : Colors.black54;
 
     return Container(
-      height: 48,
-      padding: const EdgeInsets.all(4),
+      height: 50,
       decoration: BoxDecoration(
-        color: isDark
-            ? const Color(0xFF1E1E1E)
-            : const Color(0xFFF3EFEA),
-        borderRadius: BorderRadius.circular(24),
+        color: tabBg,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Colors.grey.shade300,
+          width: 1.5,
+        ),
       ),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final tabWidth = constraints.maxWidth / tabs.length;
-
-          return Stack(
-            children: [
-              /// 🔵 Active Tab
-              AnimatedPositioned(
-                duration: const Duration(milliseconds: 250),
-                curve: Curves.easeInOut,
-                left: selectedIndex * tabWidth,
-                child: Container(
-                  width: tabWidth,
-                  height: 40,
-                  decoration: BoxDecoration(
-                  color: Color(0xFF4A90E2),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ),
-
-              /// 🏷 Tabs Text
-              Row(
-                children: List.generate(
-                  tabs.length,
-                      (index) => Expanded(
-                    child: GestureDetector(
-                      onTap: () => onTabChanged(index),
-                      behavior: HitTestBehavior.opaque,
-                      child: Center(
-                        child: Text(
-                          tabs[index],
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: selectedIndex == index
-                                ? Colors.white
-                                : isDark
-                                ? Colors.white60
-                                : Colors.grey,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
+      child: TabBar(
+        controller: controller,
+        indicatorSize: TabBarIndicatorSize.tab,
+        dividerColor: Colors.transparent,
+        labelColor: Colors.white,
+        unselectedLabelColor: unselectedText,
+        labelPadding: EdgeInsets.zero,
+        indicator: BoxDecoration(
+          color: const Color(0xFF4A90E2),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        tabs: tabs.map((e) => Tab(text: e)).toList(),
       ),
     );
   }
